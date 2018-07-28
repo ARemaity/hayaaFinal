@@ -18,20 +18,26 @@ namespace hayaaFinal
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Close();
-            
-            }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Thread.Sleep(4000);
+            Thread.Sleep(6000);
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exit_StyleChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
     }
