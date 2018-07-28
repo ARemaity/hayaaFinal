@@ -37,8 +37,6 @@
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.xtraUserControl1 = new DevExpress.XtraEditors.XtraUserControl();
-            this.editFormUserControl1 = new DevExpress.XtraGrid.Views.Grid.EditFormUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +48,6 @@
             // 
             // accordionControl1
             // 
-            this.editFormUserControl1.SetBoundPropertyName(this.accordionControl1, "");
             resources.ApplyResources(this.accordionControl1, "accordionControl1");
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1});
@@ -63,7 +60,6 @@
             // 
             // exit
             // 
-            this.editFormUserControl1.SetBoundPropertyName(this.exit, "");
             this.exit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.exit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("exit.ImageOptions.Image")));
             resources.ApplyResources(this.exit, "exit");
@@ -73,7 +69,6 @@
             // 
             // minimize
             // 
-            this.editFormUserControl1.SetBoundPropertyName(this.minimize, "");
             this.minimize.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.minimize.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("minimize.ImageOptions.Image")));
             resources.ApplyResources(this.minimize, "minimize");
@@ -84,7 +79,6 @@
             // 
             this.sidePanel2.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("sidePanel2.Appearance.BackColor")));
             this.sidePanel2.Appearance.Options.UseBackColor = true;
-            this.editFormUserControl1.SetBoundPropertyName(this.sidePanel2, "");
             this.sidePanel2.Controls.Add(this.pictureBox1);
             this.sidePanel2.Controls.Add(this.minimize);
             this.sidePanel2.Controls.Add(this.exit);
@@ -93,7 +87,6 @@
             // 
             // pictureBox1
             // 
-            this.editFormUserControl1.SetBoundPropertyName(this.pictureBox1, "");
             this.pictureBox1.Image = global::hayaaFinal.Properties.Resources.header;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
@@ -103,29 +96,14 @@
             // 
             this.sidePanel1.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("sidePanel1.Appearance.BackColor")));
             this.sidePanel1.Appearance.Options.UseBackColor = true;
-            this.editFormUserControl1.SetBoundPropertyName(this.sidePanel1, "");
             resources.ApplyResources(this.sidePanel1, "sidePanel1");
             this.sidePanel1.Name = "sidePanel1";
-            // 
-            // xtraUserControl1
-            // 
-            this.editFormUserControl1.SetBoundPropertyName(this.xtraUserControl1, "");
-            resources.ApplyResources(this.xtraUserControl1, "xtraUserControl1");
-            this.xtraUserControl1.Name = "xtraUserControl1";
-            // 
-            // editFormUserControl1
-            // 
-            resources.ApplyResources(this.editFormUserControl1, "editFormUserControl1");
-            this.editFormUserControl1.Name = "editFormUserControl1";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editFormUserControl1.SetBoundPropertyName(this, "");
-            this.Controls.Add(this.editFormUserControl1);
-            this.Controls.Add(this.xtraUserControl1);
             this.Controls.Add(this.sidePanel1);
             this.Controls.Add(this.sidePanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -147,8 +125,6 @@
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
-        private DevExpress.XtraGrid.Views.Grid.EditFormUserControl editFormUserControl1;
-        private DevExpress.XtraEditors.XtraUserControl xtraUserControl1;
     }
 }
 

@@ -117,29 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="editFormUserControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 69</value>
-  </data>
-  <data name="editFormUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>809, 428</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="editFormUserControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;editFormUserControl1.Name" xml:space="preserve">
-    <value>editFormUserControl1</value>
-  </data>
-  <data name="&gt;&gt;editFormUserControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.EditFormUserControl, DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;editFormUserControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;editFormUserControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="accordionControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -147,12 +124,14 @@
   <data name="accordionControlElement1.Text" xml:space="preserve">
     <value>accordionControlElement1</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="accordionControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 49</value>
   </data>
   <data name="accordionControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 378</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="accordionControl1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -342,7 +321,7 @@
     <value>0, 0</value>
   </data>
   <data name="sidePanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>912, 69</value>
+    <value>912, 80</value>
   </data>
   <data name="sidePanel2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -360,7 +339,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sidePanel2.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="sidePanel1.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>31, 79, 123</value>
@@ -369,10 +348,10 @@
     <value>Left</value>
   </data>
   <data name="sidePanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 69</value>
+    <value>0, 80</value>
   </data>
   <data name="sidePanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 431</value>
+    <value>106, 420</value>
   </data>
   <data name="sidePanel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -390,28 +369,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sidePanel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="xtraUserControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 111</value>
-  </data>
-  <data name="xtraUserControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 204</value>
-  </data>
-  <data name="xtraUserControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;xtraUserControl1.Name" xml:space="preserve">
-    <value>xtraUserControl1</value>
-  </data>
-  <data name="&gt;&gt;xtraUserControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.XtraUserControl, DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;xtraUserControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;xtraUserControl1.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
