@@ -76,13 +76,14 @@
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
+            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit2.Size = new System.Drawing.Size(439, 180);
             this.pictureEdit2.TabIndex = 9;
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.EditValue = global::hayaaFinal.Properties.Resources.personal_logo_1x;
+            this.pictureEdit1.EditValue = global::hayaaFinal.Properties.Resources.header;
             this.pictureEdit1.Location = new System.Drawing.Point(294, 260);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
