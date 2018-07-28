@@ -33,10 +33,12 @@
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -51,12 +53,13 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl1.Location = new System.Drawing.Point(23, 286);
+            this.labelControl1.Location = new System.Drawing.Point(23, 294);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(115, 13);
+            this.labelControl1.Size = new System.Drawing.Size(138, 30);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Copyright © 1998-2013";
+            this.labelControl1.Text = "Copyright © 2017-2018";
             // 
             // labelControl2
             // 
@@ -70,35 +73,36 @@
             // 
             this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
+            this.pictureEdit2.Location = new System.Drawing.Point(-1, 1);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
-            this.pictureEdit2.Size = new System.Drawing.Size(426, 180);
+            this.pictureEdit2.Size = new System.Drawing.Size(439, 180);
             this.pictureEdit2.TabIndex = 9;
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(278, 266);
+            this.pictureEdit1.EditValue = global::hayaaFinal.Properties.Resources.personal_logo_1x;
+            this.pictureEdit1.Location = new System.Drawing.Point(294, 260);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Size = new System.Drawing.Size(160, 48);
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Size = new System.Drawing.Size(133, 76);
             this.pictureEdit1.TabIndex = 8;
             // 
             // SplashScreen1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 358);
+            this.ClientSize = new System.Drawing.Size(435, 345);
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.labelControl2);
@@ -106,7 +110,9 @@
             this.Controls.Add(this.marqueeProgressBarControl1);
             this.Name = "SplashScreen1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.SplashScreen1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -122,5 +128,6 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }
