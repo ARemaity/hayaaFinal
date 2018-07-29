@@ -60,6 +60,7 @@
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
@@ -149,6 +150,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ide_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ide_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ide_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pielabelstooltips2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ide_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stackedbar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newemployee_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emptytablerowseparator_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tableproperties_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_32x322.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

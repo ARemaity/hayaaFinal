@@ -39,6 +39,16 @@ namespace hayaaFinal
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void navBarControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

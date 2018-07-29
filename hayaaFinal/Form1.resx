@@ -117,6 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tool1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 85</value>
+  </data>
+  <data name="tool1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>760, 500</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tool1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tool1.Name" xml:space="preserve">
+    <value>tool1</value>
+  </data>
+  <data name="&gt;&gt;tool1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.EditFormUserControl, DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tool1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tool1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="accordionControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -124,14 +147,12 @@
   <data name="accordionControlElement1.Text" xml:space="preserve">
     <value>accordionControlElement1</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="accordionControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 49</value>
   </data>
   <data name="accordionControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 378</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="accordionControl1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -140,6 +161,96 @@
   </data>
   <data name="&gt;&gt;accordionControl1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControl, DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>791, 0</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 79</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pictureBox1.WaitOnLoad" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="behaviorManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>194, 17</value>
+  </metadata>
+  <data name="الادوات.Caption" xml:space="preserve">
+    <value>الادوات</value>
+  </data>
+  <data name="navBarItem1.Caption" xml:space="preserve">
+    <value>اضافة ادوات</value>
+  </data>
+  <data name="navBarItem5.Caption" xml:space="preserve">
+    <value>احصائيات</value>
+  </data>
+  <data name="navBarSeparatorItem1.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="navBarGroup2.Caption" xml:space="preserve">
+    <value>المستعيرين</value>
+  </data>
+  <data name="navBarItem4.Caption" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="navBarItem2.Caption" xml:space="preserve">
+    <value>مشاهدة</value>
+  </data>
+  <data name="navBarSeparatorItem2.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ا.Caption" xml:space="preserve">
+    <value>اعادة</value>
+  </data>
+  <data name="navBarItem7.Caption" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="navBarItem3.Caption" xml:space="preserve">
+    <value>مشاهدة</value>
+  </data>
+  <data name="navBarGroup1.Caption" xml:space="preserve">
+    <value>مساعدة</value>
+  </data>
+  <data name="navBarControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>769, 85</value>
+  </data>
+  <data name="resource.ExpandedWidth" type="System.Int32, mscorlib">
+    <value>143</value>
+  </data>
+  <data name="navBarControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 491</value>
+  </data>
+  <data name="navBarControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;navBarControl1.Name" xml:space="preserve">
+    <value>navBarControl1</value>
+  </data>
+  <data name="&gt;&gt;navBarControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarControl, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;navBarControl1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="exit.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -196,7 +307,7 @@
 </value>
   </data>
   <data name="exit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>869, -1</value>
+    <value>3, 12</value>
   </data>
   <data name="exit.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 40</value>
@@ -264,7 +375,7 @@
 </value>
   </data>
   <data name="minimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>826, 0</value>
+    <value>49, 13</value>
   </data>
   <data name="minimize.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 39</value>
@@ -285,43 +396,37 @@
     <value>1</value>
   </data>
   <data name="sidePanel2.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
-    <value>224, 224, 224</value>
+    <value>31, 79, 123</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="pictureEdit1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, -17</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 84</value>
+  <data name="pictureEdit1.Properties.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="pictureEdit1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 96</value>
   </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="pictureEdit1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="pictureBox1.WaitOnLoad" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;pictureEdit1.Name" xml:space="preserve">
+    <value>pictureEdit1</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="&gt;&gt;pictureEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pictureEdit1.Parent" xml:space="preserve">
     <value>sidePanel2</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pictureEdit1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="sidePanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
   </data>
   <data name="sidePanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="sidePanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>912, 80</value>
+    <value>800, 79</value>
   </data>
   <data name="sidePanel2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -339,37 +444,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sidePanel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="sidePanel1.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
-    <value>31, 79, 123</value>
-  </data>
-  <data name="sidePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="sidePanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 80</value>
-  </data>
-  <data name="sidePanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 420</value>
-  </data>
-  <data name="sidePanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="sidePanel1.Text" xml:space="preserve">
-    <value>sidePanel1</value>
-  </data>
-  <data name="&gt;&gt;sidePanel1.Name" xml:space="preserve">
-    <value>sidePanel1</value>
-  </data>
-  <data name="&gt;&gt;sidePanel1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SidePanel, DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;sidePanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;sidePanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -378,7 +453,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>912, 500</value>
+    <value>912, 588</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
@@ -394,6 +469,84 @@
   </data>
   <data name="&gt;&gt;accordionControlElement1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;behaviorManager1.Name" xml:space="preserve">
+    <value>behaviorManager1</value>
+  </data>
+  <data name="&gt;&gt;behaviorManager1.Type" xml:space="preserve">
+    <value>DevExpress.Utils.Behaviors.BehaviorManager, DevExpress.Utils.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;الادوات.Name" xml:space="preserve">
+    <value>الادوات</value>
+  </data>
+  <data name="&gt;&gt;الادوات.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem1.Name" xml:space="preserve">
+    <value>navBarItem1</value>
+  </data>
+  <data name="&gt;&gt;navBarItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem5.Name" xml:space="preserve">
+    <value>navBarItem5</value>
+  </data>
+  <data name="&gt;&gt;navBarItem5.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarSeparatorItem1.Name" xml:space="preserve">
+    <value>navBarSeparatorItem1</value>
+  </data>
+  <data name="&gt;&gt;navBarSeparatorItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarSeparatorItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarGroup2.Name" xml:space="preserve">
+    <value>navBarGroup2</value>
+  </data>
+  <data name="&gt;&gt;navBarGroup2.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem4.Name" xml:space="preserve">
+    <value>navBarItem4</value>
+  </data>
+  <data name="&gt;&gt;navBarItem4.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem2.Name" xml:space="preserve">
+    <value>navBarItem2</value>
+  </data>
+  <data name="&gt;&gt;navBarItem2.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarSeparatorItem2.Name" xml:space="preserve">
+    <value>navBarSeparatorItem2</value>
+  </data>
+  <data name="&gt;&gt;navBarSeparatorItem2.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarSeparatorItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ا.Name" xml:space="preserve">
+    <value>ا</value>
+  </data>
+  <data name="&gt;&gt;ا.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem7.Name" xml:space="preserve">
+    <value>navBarItem7</value>
+  </data>
+  <data name="&gt;&gt;navBarItem7.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem3.Name" xml:space="preserve">
+    <value>navBarItem3</value>
+  </data>
+  <data name="&gt;&gt;navBarItem3.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarGroup1.Name" xml:space="preserve">
+    <value>navBarGroup1</value>
+  </data>
+  <data name="&gt;&gt;navBarGroup1.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>
