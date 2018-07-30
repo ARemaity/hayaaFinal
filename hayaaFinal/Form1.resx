@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tool1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 85</value>
+    <value>0, 133</value>
   </data>
   <data name="tool1.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 500</value>
@@ -375,10 +375,10 @@
 </value>
   </data>
   <data name="minimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 13</value>
+    <value>49, 12</value>
   </data>
   <data name="minimize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 39</value>
+    <value>37, 40</value>
   </data>
   <data name="minimize.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -398,28 +398,25 @@
   <data name="sidePanel2.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>31, 79, 123</value>
   </data>
-  <data name="pictureEdit1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, -17</value>
+  <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 12</value>
   </data>
-  <data name="pictureEdit1.Properties.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
-    <value>Transparent</value>
+  <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 40</value>
   </data>
-  <data name="pictureEdit1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 96</value>
+  <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="pictureEdit1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;simpleButton1.Name" xml:space="preserve">
+    <value>simpleButton1</value>
   </data>
-  <data name="&gt;&gt;pictureEdit1.Name" xml:space="preserve">
-    <value>pictureEdit1</value>
+  <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;pictureEdit1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PictureEdit, DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;pictureEdit1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>sidePanel2</value>
   </data>
-  <data name="&gt;&gt;pictureEdit1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="sidePanel2.Location" type="System.Drawing.Point, System.Drawing">

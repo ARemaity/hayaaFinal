@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::hayaaFinal.SplashScreen1), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            DevExpress.Utils.Controls.SnapOptions snapOptions1 = new DevExpress.Utils.Controls.SnapOptions();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.الادوات = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -47,18 +47,17 @@
             this.ا = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.exit = new DevExpress.XtraEditors.SimpleButton();
             this.minimize = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tool1 = new DevExpress.XtraGrid.Views.Grid.EditFormUserControl();
-            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.sidePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -196,10 +195,15 @@
             this.navBarItem3.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.tableproperties_32x32;
             this.navBarItem3.Name = "navBarItem3";
             // 
+            // navBarGroup1
+            // 
+            resources.ApplyResources(this.navBarGroup1, "navBarGroup1");
+            this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.Name = "navBarGroup1";
+            // 
             // exit
             // 
             this.tool1.SetBoundPropertyName(this.exit, "");
-            this.exit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.exit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("exit.ImageOptions.Image")));
             resources.ApplyResources(this.exit, "exit");
             this.exit.Name = "exit";
@@ -209,7 +213,6 @@
             // minimize
             // 
             this.tool1.SetBoundPropertyName(this.minimize, "");
-            this.minimize.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.minimize.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("minimize.ImageOptions.Image")));
             resources.ApplyResources(this.minimize, "minimize");
             this.minimize.Name = "minimize";
@@ -217,42 +220,36 @@
             // 
             // sidePanel2
             // 
+            this.sidePanel2.AllowSnap = false;
             this.sidePanel2.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("sidePanel2.Appearance.BackColor")));
             this.sidePanel2.Appearance.Options.UseBackColor = true;
             this.tool1.SetBoundPropertyName(this.sidePanel2, "");
-            this.sidePanel2.Controls.Add(this.pictureEdit1);
+            this.sidePanel2.Controls.Add(this.simpleButton1);
             this.sidePanel2.Controls.Add(this.minimize);
             this.sidePanel2.Controls.Add(this.exit);
             resources.ApplyResources(this.sidePanel2, "sidePanel2");
             this.sidePanel2.Name = "sidePanel2";
             // 
-            // pictureEdit1
+            // simpleButton1
             // 
-            this.tool1.SetBoundPropertyName(this.pictureEdit1, "");
-            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.EditValue = global::hayaaFinal.Properties.Resources.info_32x322;
-            resources.ApplyResources(this.pictureEdit1, "pictureEdit1");
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("pictureEdit1.Properties.Appearance.BackColor")));
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.tool1.SetBoundPropertyName(this.simpleButton1, "");
+            this.simpleButton1.ImageOptions.Image = global::hayaaFinal.Properties.Resources.info_32x323;
+            resources.ApplyResources(this.simpleButton1, "simpleButton1");
+            this.simpleButton1.Name = "simpleButton1";
             // 
             // tool1
             // 
             resources.ApplyResources(this.tool1, "tool1");
             this.tool1.Name = "tool1";
             // 
-            // navBarGroup1
-            // 
-            resources.ApplyResources(this.navBarGroup1, "navBarGroup1");
-            this.navBarGroup1.Expanded = true;
-            this.navBarGroup1.Name = "navBarGroup1";
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            snapOptions1.SnapOnMoving = DevExpress.Utils.DefaultBoolean.True;
+            this.behaviorManager1.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.SnapWindowBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.SnapWindowBehaviorSourceForForm), snapOptions1)))});
             this.tool1.SetBoundPropertyName(this, "");
             this.Controls.Add(this.tool1);
             this.Controls.Add(this.pictureBox1);
@@ -267,7 +264,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.sidePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,9 +288,9 @@
         private DevExpress.XtraNavBar.NavBarSeparatorItem navBarSeparatorItem2;
         private DevExpress.XtraNavBar.NavBarItem navBarItem7;
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraGrid.Views.Grid.EditFormUserControl tool1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
 
