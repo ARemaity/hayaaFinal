@@ -163,6 +163,16 @@ namespace hayaaFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info_32px {
+            get {
+                object obj = ResourceManager.GetObject("Info_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap info_32x32 {
             get {
                 object obj = ResourceManager.GetObject("info_32x32", resourceCulture);
@@ -193,9 +203,9 @@ namespace hayaaFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap info_32x323 {
+        internal static System.Drawing.Bitmap MaxCDN_32px {
             get {
-                object obj = ResourceManager.GetObject("info_32x323", resourceCulture);
+                object obj = ResourceManager.GetObject("MaxCDN_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +216,16 @@ namespace hayaaFinal.Properties {
         internal static System.Drawing.Bitmap minimize {
             get {
                 object obj = ResourceManager.GetObject("minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Minimize_Window_26px {
+            get {
+                object obj = ResourceManager.GetObject("Minimize_Window_26px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +276,16 @@ namespace hayaaFinal.Properties {
         internal static System.Drawing.Bitmap show_32x32 {
             get {
                 object obj = ResourceManager.GetObject("show_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shutdown_32px {
+            get {
+                object obj = ResourceManager.GetObject("Shutdown_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

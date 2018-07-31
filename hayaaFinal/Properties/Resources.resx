@@ -184,10 +184,19 @@
   <data name="stackedbar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stackedbar_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="info_32x323" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_32x324.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="admin_512dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\admin_512dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Info_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Info_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MaxCDN_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaxCDN_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Minimize_Window_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minimize Window_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shutdown_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shutdown_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

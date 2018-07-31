@@ -251,5 +251,26 @@
   <ItemGroup>
     <None Include="Resources\admin_512dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize Vertical_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shutdown_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaxCDN_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shutdown_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info_32px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
