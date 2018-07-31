@@ -22,7 +22,7 @@ namespace hayaaFinal
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Thread.Sleep(6000);
+        
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

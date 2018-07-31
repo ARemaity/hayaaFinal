@@ -455,12 +455,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
   </data>
-  <data name="&gt;&gt;splashScreenManager1.Name" xml:space="preserve">
-    <value>splashScreenManager1</value>
-  </data>
-  <data name="&gt;&gt;splashScreenManager1.Type" xml:space="preserve">
-    <value>DevExpress.XtraSplashScreen.SplashScreenManager, DevExpress.XtraEditors.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;accordionControlElement1.Name" xml:space="preserve">
     <value>accordionControlElement1</value>
   </data>
