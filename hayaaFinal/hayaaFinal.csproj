@@ -272,5 +272,8 @@
   <ItemGroup>
     <None Include="Resources\Info_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-blue-business-technology-background-footage-077433698_prevstill1.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

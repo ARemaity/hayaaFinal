@@ -233,6 +233,16 @@ namespace hayaaFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap modern_blue_business_technology_background_footage_077433698_prevstill {
+            get {
+                object obj = ResourceManager.GetObject("modern-blue-business-technology-background-footage-077433698_prevstill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newemployee_32x32 {
             get {
                 object obj = ResourceManager.GetObject("newemployee_32x32", resourceCulture);

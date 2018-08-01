@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace hayaaFinal
 {
-    public partial class intro : Form
+    public partial class intro : DevExpress.XtraEditors.XtraForm
     {
         public intro()
         {
@@ -28,6 +28,11 @@ namespace hayaaFinal
             this.Hide();
             Form1 a = new Form1();
             a.ShowDialog();
+
+        }
+
+        private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
 
         }
     }
