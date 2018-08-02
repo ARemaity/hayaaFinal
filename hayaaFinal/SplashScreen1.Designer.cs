@@ -79,6 +79,7 @@
             this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit2.Size = new System.Drawing.Size(439, 180);
             this.pictureEdit2.TabIndex = 9;
+            this.pictureEdit2.EditValueChanged += new System.EventHandler(this.pictureEdit2_EditValueChanged);
             // 
             // pictureEdit1
             // 
@@ -99,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 345);
+            this.ClientSize = new System.Drawing.Size(440, 345);
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.labelControl2);

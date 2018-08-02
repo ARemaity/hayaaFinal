@@ -34,13 +34,13 @@
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.navcontrol = new DevExpress.XtraNavBar.NavBarControl();
+            this.ا = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.borrowing1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarSeparatorItem2 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
-            this.ا = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.searchbutton = new DevExpress.XtraNavBar.NavBarGroup();
             this.swearch1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarSeparatorItem4 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
@@ -60,7 +60,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Black";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Black";
             // 
             // ribbonPage2
             // 
@@ -71,41 +71,41 @@
             // 
             this.navcontrol.ActiveGroup = this.ا;
             resources.ApplyResources(this.navcontrol, "navcontrol");
-            this.navcontrol.Appearance.Background.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.Background.BackColor")));
+            this.navcontrol.Appearance.Background.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.Background.BackColor")));
             this.navcontrol.Appearance.Background.Options.UseBackColor = true;
-            this.navcontrol.Appearance.Button.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.Button.BackColor")));
+            this.navcontrol.Appearance.Button.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.Button.BackColor")));
             this.navcontrol.Appearance.Button.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ButtonDisabled.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ButtonDisabled.BackColor")));
+            this.navcontrol.Appearance.ButtonDisabled.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ButtonDisabled.BackColor")));
             this.navcontrol.Appearance.ButtonDisabled.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ButtonHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ButtonHotTracked.BackColor")));
+            this.navcontrol.Appearance.ButtonHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ButtonHotTracked.BackColor")));
             this.navcontrol.Appearance.ButtonHotTracked.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ButtonPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ButtonPressed.BackColor")));
+            this.navcontrol.Appearance.ButtonPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ButtonPressed.BackColor")));
             this.navcontrol.Appearance.ButtonPressed.Options.UseBackColor = true;
-            this.navcontrol.Appearance.GroupBackground.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.GroupBackground.BackColor")));
+            this.navcontrol.Appearance.GroupBackground.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.GroupBackground.BackColor")));
             this.navcontrol.Appearance.GroupBackground.Options.UseBackColor = true;
-            this.navcontrol.Appearance.GroupHeader.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.GroupHeader.BackColor")));
+            this.navcontrol.Appearance.GroupHeader.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.GroupHeader.BackColor")));
             this.navcontrol.Appearance.GroupHeader.Options.UseBackColor = true;
-            this.navcontrol.Appearance.GroupHeaderActive.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.GroupHeaderActive.BackColor")));
+            this.navcontrol.Appearance.GroupHeaderActive.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.GroupHeaderActive.BackColor")));
             this.navcontrol.Appearance.GroupHeaderActive.Options.UseBackColor = true;
-            this.navcontrol.Appearance.GroupHeaderHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.GroupHeaderHotTracked.BackColor")));
+            this.navcontrol.Appearance.GroupHeaderHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.GroupHeaderHotTracked.BackColor")));
             this.navcontrol.Appearance.GroupHeaderHotTracked.Options.UseBackColor = true;
-            this.navcontrol.Appearance.GroupHeaderPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.GroupHeaderPressed.BackColor")));
+            this.navcontrol.Appearance.GroupHeaderPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.GroupHeaderPressed.BackColor")));
             this.navcontrol.Appearance.GroupHeaderPressed.Options.UseBackColor = true;
-            this.navcontrol.Appearance.Hint.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.Hint.BackColor")));
+            this.navcontrol.Appearance.Hint.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.Hint.BackColor")));
             this.navcontrol.Appearance.Hint.Options.UseBackColor = true;
-            this.navcontrol.Appearance.Item.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.Item.BackColor")));
+            this.navcontrol.Appearance.Item.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.Item.BackColor")));
             this.navcontrol.Appearance.Item.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ItemActive.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ItemActive.BackColor")));
+            this.navcontrol.Appearance.ItemActive.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ItemActive.BackColor")));
             this.navcontrol.Appearance.ItemActive.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ItemDisabled.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ItemDisabled.BackColor")));
+            this.navcontrol.Appearance.ItemDisabled.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ItemDisabled.BackColor")));
             this.navcontrol.Appearance.ItemDisabled.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ItemHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ItemHotTracked.BackColor")));
+            this.navcontrol.Appearance.ItemHotTracked.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ItemHotTracked.BackColor")));
             this.navcontrol.Appearance.ItemHotTracked.Options.UseBackColor = true;
-            this.navcontrol.Appearance.ItemPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.ItemPressed.BackColor")));
+            this.navcontrol.Appearance.ItemPressed.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.ItemPressed.BackColor")));
             this.navcontrol.Appearance.ItemPressed.Options.UseBackColor = true;
-            this.navcontrol.Appearance.LinkDropTarget.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.LinkDropTarget.BackColor")));
+            this.navcontrol.Appearance.LinkDropTarget.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.LinkDropTarget.BackColor")));
             this.navcontrol.Appearance.LinkDropTarget.Options.UseBackColor = true;
-            this.navcontrol.Appearance.NavigationPaneHeader.BackColor = ((System.Drawing.Color)(resources.GetObject("navBarControl1.Appearance.NavigationPaneHeader.BackColor")));
+            this.navcontrol.Appearance.NavigationPaneHeader.BackColor = ((System.Drawing.Color)(resources.GetObject("navcontrol.Appearance.NavigationPaneHeader.BackColor")));
             this.navcontrol.Appearance.NavigationPaneHeader.Options.UseBackColor = true;
             this.navcontrol.BackColor = System.Drawing.Color.White;
             this.navcontrol.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -132,6 +132,29 @@
             this.navcontrol.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.SideBar;
             this.navcontrol.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
             this.navcontrol.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinNavigationPaneViewInfoRegistrator("Office 2016 Colorful");
+            // 
+            // ا
+            // 
+            resources.ApplyResources(this.ا, "ا");
+            this.ا.Expanded = true;
+            this.ا.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.reset_32x32;
+            this.ا.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
+            this.ا.Name = "ا";
+            // 
+            // navBarItem7
+            // 
+            resources.ApplyResources(this.navBarItem7, "navBarItem7");
+            this.navBarItem7.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.navBarItem7.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.newemployee_32x32;
+            this.navBarItem7.Name = "navBarItem7";
+            // 
+            // navBarItem3
+            // 
+            resources.ApplyResources(this.navBarItem3, "navBarItem3");
+            this.navBarItem3.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.show_32x32;
+            this.navBarItem3.Name = "navBarItem3";
             // 
             // navBarGroup2
             // 
@@ -166,29 +189,6 @@
             this.navBarSeparatorItem2.Enabled = false;
             resources.ApplyResources(this.navBarSeparatorItem2, "navBarSeparatorItem2");
             this.navBarSeparatorItem2.Name = "navBarSeparatorItem2";
-            // 
-            // ا
-            // 
-            resources.ApplyResources(this.ا, "ا");
-            this.ا.Expanded = true;
-            this.ا.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.reset_32x32;
-            this.ا.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
-            this.ا.Name = "ا";
-            // 
-            // navBarItem7
-            // 
-            resources.ApplyResources(this.navBarItem7, "navBarItem7");
-            this.navBarItem7.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.navBarItem7.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.newemployee_32x32;
-            this.navBarItem7.Name = "navBarItem7";
-            // 
-            // navBarItem3
-            // 
-            resources.ApplyResources(this.navBarItem3, "navBarItem3");
-            this.navBarItem3.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.show_32x32;
-            this.navBarItem3.Name = "navBarItem3";
             // 
             // searchbutton
             // 
@@ -259,6 +259,7 @@
             this.headerbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(79)))), ((int)(((byte)(123)))));
             resources.ApplyResources(this.headerbar, "headerbar");
             this.headerbar.Name = "headerbar";
+            this.headerbar.Resize += new System.EventHandler(this.Form2_Resize);
             // 
             // pictureBox1
             // 
@@ -282,7 +283,9 @@
             this.Controls.Add(this.headerbar);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.Name = "Form2";
-            this.TopMost = true;
+            this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Resize += new System.EventHandler(this.Form2_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.navcontrol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

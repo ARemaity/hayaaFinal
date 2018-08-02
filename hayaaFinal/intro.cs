@@ -13,9 +13,13 @@ namespace hayaaFinal
 {
     public partial class intro : DevExpress.XtraEditors.XtraForm
     {
+
         public intro()
         {
-            InitializeComponent(); Form2 a = new Form2();
+            InitializeComponent();
+            login a = new login();
+            Form2 form2 = new Form2();
+
         }
 
         private void intro_Load(object sender, EventArgs e)
@@ -25,13 +29,23 @@ namespace hayaaFinal
 
         private void adminTile_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            this.Hide();
-            Form2 a = new Form2();
+        
+            login a = new login();
             a.ShowDialog();
 
         }
 
         private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+
+        }
+
+        private void tileControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tileItem8_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
 
         }

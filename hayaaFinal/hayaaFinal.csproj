@@ -96,8 +96,17 @@
     <Reference Include="DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -122,6 +131,28 @@
     <Compile Include="intro.Designer.cs">
       <DependentUpon>intro.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>loginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loginModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="loginModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loginModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="loginModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>loginModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashScreen1.cs">
@@ -142,6 +173,9 @@
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,6 +190,14 @@
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="loginModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>loginModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="loginModel.edmx.diagram">
+      <DependentUpon>loginModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -280,6 +322,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\modern-blue-business-technology-background-footage-077433698_prevstill1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passcrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="loginModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>loginModel.Context.cs</LastGenOutput>
+      <DependentUpon>loginModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="loginModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>loginModel.edmx</DependentUpon>
+      <LastGenOutput>loginModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\font-awesome_4-7-0_user_1024_0_00aeef_none.png" />
+    <None Include="Resources\e5ba79334133d2cb362dd639f755a392.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

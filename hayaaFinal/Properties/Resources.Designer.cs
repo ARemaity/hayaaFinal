@@ -103,9 +103,29 @@ namespace hayaaFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap e5ba79334133d2cb362dd639f755a392 {
+            get {
+                object obj = ResourceManager.GetObject("e5ba79334133d2cb362dd639f755a392", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap emptytablerowseparator_32x32 {
             get {
                 object obj = ResourceManager.GetObject("emptytablerowseparator_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap font_awesome_4_7_0_user_1024_0_00aeef_none {
+            get {
+                object obj = ResourceManager.GetObject("font-awesome_4-7-0_user_1024_0_00aeef_none", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +266,16 @@ namespace hayaaFinal.Properties {
         internal static System.Drawing.Bitmap newemployee_32x32 {
             get {
                 object obj = ResourceManager.GetObject("newemployee_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passcrack {
+            get {
+                object obj = ResourceManager.GetObject("passcrack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

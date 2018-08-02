@@ -137,58 +137,58 @@
     <value>Top, Bottom, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="navBarControl1.Appearance.Background.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.Background.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.Button.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.Button.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ButtonDisabled.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ButtonDisabled.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ButtonHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ButtonHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ButtonPressed.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ButtonPressed.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.GroupBackground.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.GroupBackground.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.GroupHeader.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.GroupHeader.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.GroupHeaderActive.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.GroupHeaderActive.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.GroupHeaderHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.GroupHeaderHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.GroupHeaderPressed.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.GroupHeaderPressed.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.Hint.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.Hint.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.Item.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.Item.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ItemActive.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ItemActive.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ItemDisabled.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ItemDisabled.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ItemHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ItemHotTracked.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.ItemPressed.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.ItemPressed.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.LinkDropTarget.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.LinkDropTarget.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
-  <data name="navBarControl1.Appearance.NavigationPaneHeader.BackColor" type="System.Drawing.Color, System.Drawing">
+  <data name="navcontrol.Appearance.NavigationPaneHeader.BackColor" type="System.Drawing.Color, System.Drawing">
     <value>White</value>
   </data>
   <data name="navBarGroup2.Caption" xml:space="preserve">
@@ -456,7 +456,7 @@
     <value />
   </data>
   <data name="navcontrol.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1100, 135</value>
+    <value>747, 135</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="resource.ExpandedWidth" type="System.Int32, mscorlib">
@@ -490,7 +490,7 @@
     <value>-52, 111</value>
   </data>
   <data name="headerbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>2055, 24</value>
+    <value>1000, 24</value>
   </data>
   <data name="headerbar.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -511,7 +511,7 @@
     <value>Top</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>550, -8</value>
+    <value>373, -8</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 113</value>
@@ -541,13 +541,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1268, 646</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>Manual</value>
+    <value>915, 646</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Form2</value>
+    <value>مستخدم</value>
   </data>
   <data name="&gt;&gt;defaultLookAndFeel1.Name" xml:space="preserve">
     <value>defaultLookAndFeel1</value>
@@ -560,6 +557,24 @@
   </data>
   <data name="&gt;&gt;ribbonPage2.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ا.Name" xml:space="preserve">
+    <value>ا</value>
+  </data>
+  <data name="&gt;&gt;ا.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem7.Name" xml:space="preserve">
+    <value>navBarItem7</value>
+  </data>
+  <data name="&gt;&gt;navBarItem7.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;navBarItem3.Name" xml:space="preserve">
+    <value>navBarItem3</value>
+  </data>
+  <data name="&gt;&gt;navBarItem3.Type" xml:space="preserve">
+    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;navBarGroup2.Name" xml:space="preserve">
     <value>navBarGroup2</value>
@@ -584,24 +599,6 @@
   </data>
   <data name="&gt;&gt;navBarSeparatorItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraNavBar.NavBarSeparatorItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;ا.Name" xml:space="preserve">
-    <value>ا</value>
-  </data>
-  <data name="&gt;&gt;ا.Type" xml:space="preserve">
-    <value>DevExpress.XtraNavBar.NavBarGroup, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;navBarItem7.Name" xml:space="preserve">
-    <value>navBarItem7</value>
-  </data>
-  <data name="&gt;&gt;navBarItem7.Type" xml:space="preserve">
-    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;navBarItem3.Name" xml:space="preserve">
-    <value>navBarItem3</value>
-  </data>
-  <data name="&gt;&gt;navBarItem3.Type" xml:space="preserve">
-    <value>DevExpress.XtraNavBar.NavBarItem, DevExpress.XtraNavBar.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;searchbutton.Name" xml:space="preserve">
     <value>searchbutton</value>

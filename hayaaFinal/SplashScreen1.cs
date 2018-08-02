@@ -33,5 +33,10 @@ namespace hayaaFinal
         {
 
         }
+
+        private void pictureEdit2_EditValueChanged(object sender, EventArgs e)
+        {
+            //////////////////////not valid
+        }
     }
 }
