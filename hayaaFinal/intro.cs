@@ -15,7 +15,7 @@ namespace hayaaFinal
     {
         public intro()
         {
-            InitializeComponent(); Form1 a = new Form1();
+            InitializeComponent(); Form2 a = new Form2();
         }
 
         private void intro_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace hayaaFinal
         private void adminTile_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
             this.Hide();
-            Form1 a = new Form1();
+            Form2 a = new Form2();
             a.ShowDialog();
 
         }
