@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="haya" Class="loginEntitesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-OAREN3E\ALI;Initial Catalog=haya;Integrated Security=True" SettingsObjectName="hayaaFinal.Properties.Settings" SettingsPropertyName="hayaConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.login" Member="logins">
-    <Type Name="login">
-      <Column Name="username" Type="System.String" DbType="NVarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-</Database>
