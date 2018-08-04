@@ -19,9 +19,31 @@ namespace hayaaFinal
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form2 admin = new Form2();
-            admin.Show();
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("الرجاء ادخال اسم المستخدم", "رسالة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                textBox1.Focus();
+                return;
+
+            }
+            try {
+                using (loginEntites login = new loginEntites())
+                {
+                    
+                }
+
+                {
+
+                    var query =from o in 
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "رسالة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
