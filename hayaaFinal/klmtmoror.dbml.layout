@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="klmtmoror">
+  <DataContextMoniker Name="/klmtmororDataContext" />
+  <nestedChildShapes>
+    <classShape Id="85c225d3-9b3b-4d24-993b-2c57946bd1b4" absoluteBounds="5.625, 1.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/klmtmororDataContext/login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="859e9eef-c09e-4465-8f2c-61077eee5191" absoluteBounds="5.64, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

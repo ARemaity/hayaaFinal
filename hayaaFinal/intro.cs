@@ -17,9 +17,8 @@ namespace hayaaFinal
         public intro()
         {
             InitializeComponent();
-            login a = new login();
-            Form2 form2 = new Form2();
-
+           
+           
         }
 
         private void intro_Load(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace hayaaFinal
         private void adminTile_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
         
-            login a = new login();
+            sign a = new sign();
             a.ShowDialog();
 
         }

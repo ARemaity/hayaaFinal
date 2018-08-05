@@ -105,6 +105,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -125,11 +126,21 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="hayaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hayaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="intro.Designer.cs">
       <DependentUpon>intro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="klmtmoror.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>klmtmoror.dbml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +185,25 @@
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="hayaDataSet.xsc">
+      <DependentUpon>hayaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hayaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hayaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hayaDataSet.xss">
+      <DependentUpon>hayaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="klmtmoror.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>klmtmoror.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="klmtmoror.dbml.layout">
+      <DependentUpon>klmtmoror.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -308,6 +338,7 @@
     <None Include="Resources\e5ba79334133d2cb362dd639f755a392.png" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
