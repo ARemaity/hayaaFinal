@@ -130,7 +130,7 @@
             this.navcontrol.OptionsNavPane.ExpandedWidth = ((int)(resources.GetObject("resource.ExpandedWidth")));
             this.navcontrol.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.SideBar;
             this.navcontrol.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
-            this.navcontrol.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinNavigationPaneViewInfoRegistrator("Office 2016 Colorful");
+            this.navcontrol.View = new DevExpress.XtraNavBar.ViewInfo.SkinExplorerBarViewInfoRegistrator();
             // 
             // ا
             // 
