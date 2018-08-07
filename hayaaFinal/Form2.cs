@@ -12,7 +12,12 @@ namespace hayaaFinal
 {
     public partial class Form2 : DevExpress.XtraEditors.XtraForm
     {
+#pragma warning disable CS0169 // The field 'Form2.peast' is never used
         int peast;
+#pragma warning restore CS0169 // The field 'Form2.peast' is never used
+
+
+        returning r1 = new returning();
         public Form2()
         {
             InitializeComponent();
@@ -30,6 +35,11 @@ namespace hayaaFinal
         }
 
         private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
 
         }

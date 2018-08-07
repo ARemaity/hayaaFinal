@@ -8,6 +8,7 @@ namespace hayaaFinal
     public partial class sign : DevExpress.XtraEditors.XtraForm
     {
         private klmtmororDataContext klmtmoror = new klmtmororDataContext();
+        public static SqlConnection sqlcon = new SqlConnection(@"Data Source=DESKTOP-OAREN3E\ALI;Initial Catalog=haya;Integrated Security=True");
         public sign()
         {
             InitializeComponent();
@@ -28,7 +29,6 @@ namespace hayaaFinal
 
         private void login_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(@"Data Source=DESKTOP-OAREN3E\ALI;Initial Catalog=haya;Integrated Security=True");
             string query = "Select * from login Where username = '" + usernametext.Text.Trim() + "' and password = '" + passwordtext.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
             DataTable dtbl = new DataTable();

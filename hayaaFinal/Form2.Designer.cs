@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DevExpress.Utils.Controls.SnapOptions snapOptions1 = new DevExpress.Utils.Controls.SnapOptions();
+            DevExpress.Utils.Controls.SnapOptions snapOptions2 = new DevExpress.Utils.Controls.SnapOptions();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.navcontrol = new DevExpress.XtraNavBar.NavBarControl();
@@ -158,6 +158,7 @@
             // navBarGroup2
             // 
             resources.ApplyResources(this.navBarGroup2, "navBarGroup2");
+            this.navBarGroup2.Expanded = true;
             this.navBarGroup2.GroupCaptionUseImage = DevExpress.XtraNavBar.NavBarImage.Small;
             this.navBarGroup2.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarGroup2.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
@@ -181,6 +182,7 @@
             resources.ApplyResources(this.navBarItem2, "navBarItem2");
             this.navBarItem2.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.show_32x32;
             this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // navBarSeparatorItem2
             // 
@@ -273,9 +275,9 @@
             this.Appearance.Options.UseBackColor = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            snapOptions1.SnapOnResizing = DevExpress.Utils.DefaultBoolean.True;
+            snapOptions2.SnapOnResizing = DevExpress.Utils.DefaultBoolean.True;
             this.behaviorManager1.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
-            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.SnapWindowBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.SnapWindowBehaviorSourceForForm), snapOptions1))),
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.SnapWindowBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.SnapWindowBehaviorSourceForForm), snapOptions2))),
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
             this.Controls.Add(this.navcontrol);
             this.Controls.Add(this.pictureBox1);

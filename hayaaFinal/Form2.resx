@@ -126,12 +126,6 @@
   <data name="ا.Caption" xml:space="preserve">
     <value>اعادة</value>
   </data>
-  <data name="navBarItem7.Caption" xml:space="preserve">
-    <value>جديد</value>
-  </data>
-  <data name="navBarItem3.Caption" xml:space="preserve">
-    <value>مشاهدة</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="navcontrol.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
@@ -193,15 +187,6 @@
   </data>
   <data name="navBarGroup2.Caption" xml:space="preserve">
     <value>المستعيرين</value>
-  </data>
-  <data name="borrowing1.Caption" xml:space="preserve">
-    <value>جديد</value>
-  </data>
-  <data name="navBarItem2.Caption" xml:space="preserve">
-    <value>مشاهدة</value>
-  </data>
-  <data name="navBarSeparatorItem2.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="searchbutton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -300,12 +285,6 @@
         R+ZN0wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="swearch1.Caption" xml:space="preserve">
-    <value>احصاء جديد</value>
-  </data>
-  <data name="navBarSeparatorItem4.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="navBarGroup1.Caption" xml:space="preserve">
     <value>حول </value>
   </data>
@@ -353,6 +332,39 @@
         sxY51Wpqr1usPL773KVuVN7eOMgfRbxfqg8ar6E13dJVb7ZNjOECxxeGCxxeUPu+tqGlq/qgr/juJ0bO
         f0YzFjq9fjb7o0yb79ht2rzXqIIQagS/CTHc5n0fvHm8wXzHbv8B1wy8b2C4gJwAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="navcontrol.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Disable</value>
+  </data>
+  <data name="navBarItem1.Caption" xml:space="preserve">
+    <value>اضافة ادوات</value>
+  </data>
+  <data name="borrowing1.Caption" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="navBarItem5.Caption" xml:space="preserve">
+    <value>احصائيات</value>
+  </data>
+  <data name="navBarItem2.Caption" xml:space="preserve">
+    <value>مشاهدة</value>
+  </data>
+  <data name="navBarSeparatorItem1.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="navBarSeparatorItem2.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="navBarItem7.Caption" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="navBarItem3.Caption" xml:space="preserve">
+    <value>مشاهدة</value>
+  </data>
+  <data name="swearch1.Caption" xml:space="preserve">
+    <value>احصاء جديد</value>
+  </data>
+  <data name="navBarSeparatorItem4.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="navBarItem4.Caption" xml:space="preserve">
     <value>مساعدة</value>
@@ -442,18 +454,6 @@
         N1sS8WubiEaZk8fxuicatmBuljDwNZonGJOSRYRwLxOuhjCxLNDF5BdmfmmG/Zjcpj8mTzJsYVWjCCYo
         hRDu39Uwmb4JGuSV/RlWeRd95tn/ACkf7LJGd7q+AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="navcontrol.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Disable</value>
-  </data>
-  <data name="navBarItem1.Caption" xml:space="preserve">
-    <value>اضافة ادوات</value>
-  </data>
-  <data name="navBarItem5.Caption" xml:space="preserve">
-    <value>احصائيات</value>
-  </data>
-  <data name="navBarSeparatorItem1.Hint" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
   </data>
   <data name="navcontrol.Location" type="System.Drawing.Point, System.Drawing">
     <value>747, 135</value>
