@@ -11,22 +11,17 @@ using DevExpress.XtraEditors;
 
 namespace hayaaFinal
 {
-    public partial class returning : System.Windows.Forms.UserControl
+    public partial class getborrowing : DevExpress.XtraEditors.XtraUserControl
     {
-        public returning()
+        public getborrowing()
         {
             InitializeComponent();
         }
 
-        private void returningGrid_Click(object sender, EventArgs e)
+        private void getborrowing_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void returning_Load(object sender, EventArgs e)
-        {
-            Program.createAdapter("select * From User");
-            Program.FillData("User", returnGrid);
+            Program.createAdapter("Select * From patient ");
+            Program.FillData("patient", borrowGrid);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 
 namespace hayaaFinal
 {
@@ -20,7 +21,7 @@ namespace hayaaFinal
             da= new SqlDataAdapter(sql, sqlcon);
         }
 
-        public static void FillData(string tables,DataGridView dataGrid)
+        public static void FillData(string tables,GridControl dataGrid)
         {
         
             // Fill Dataset

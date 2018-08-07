@@ -121,6 +121,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="getborrowing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="getborrowing.Designer.cs">
+      <DependentUpon>getborrowing.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="hayaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -140,12 +146,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="returning.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="returning.Designer.cs">
-      <DependentUpon>returning.cs</DependentUpon>
-    </Compile>
     <Compile Include="sign.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +167,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="getborrowing.resx">
+      <DependentUpon>getborrowing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +184,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="returning.resx">
-      <DependentUpon>returning.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="sign.resx">
       <DependentUpon>sign.cs</DependentUpon>
     </EmbeddedResource>
