@@ -7,7 +7,7 @@ namespace hayaaFinal
 {
     public partial class sign : DevExpress.XtraEditors.XtraForm
     {
-        private klmtmororDataContext klmtmoror = new klmtmororDataContext();
+       
         public static SqlConnection sqlcon = new SqlConnection(@"Data Source=DESKTOP-OAREN3E\ALI;Initial Catalog=haya;Integrated Security=True");
         public sign()
         {

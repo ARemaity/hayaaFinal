@@ -24,19 +24,25 @@ namespace hayaaFinal {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class hayaDataSet : global::System.Data.DataSet {
         
+        private borrowingDataTable tableborrowing;
+        
         private loginDataTable tablelogin;
         
-        private اداةDataTable tableاداة;
+        private PatientDataTable tablePatient;
         
-        private الاستعارةDataTable tableالاستعارة;
+        private returningDataTable tablereturning;
         
-        private الاعادةDataTable tableالاعادة;
+        private toolDataTable tabletool;
         
-        private المستعيرDataTable tableالمستعير;
+        private UserDataTable tableUser;
+        
+        private global::System.Data.DataRelation relationFK_borrowing_User;
         
         private global::System.Data.DataRelation relationFK_الاستعارة_اداة;
         
         private global::System.Data.DataRelation relationFK_الاستعارة_المستعير;
+        
+        private global::System.Data.DataRelation relationFK_returning_User;
         
         private global::System.Data.DataRelation relationFK_الاعادة_اداة2;
         
@@ -70,20 +76,23 @@ namespace hayaaFinal {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["borrowing"] != null)) {
+                    base.Tables.Add(new borrowingDataTable(ds.Tables["borrowing"]));
+                }
                 if ((ds.Tables["login"] != null)) {
                     base.Tables.Add(new loginDataTable(ds.Tables["login"]));
                 }
-                if ((ds.Tables["اداة"] != null)) {
-                    base.Tables.Add(new اداةDataTable(ds.Tables["اداة"]));
+                if ((ds.Tables["Patient"] != null)) {
+                    base.Tables.Add(new PatientDataTable(ds.Tables["Patient"]));
                 }
-                if ((ds.Tables["الاستعارة"] != null)) {
-                    base.Tables.Add(new الاستعارةDataTable(ds.Tables["الاستعارة"]));
+                if ((ds.Tables["returning"] != null)) {
+                    base.Tables.Add(new returningDataTable(ds.Tables["returning"]));
                 }
-                if ((ds.Tables["الاعادة"] != null)) {
-                    base.Tables.Add(new الاعادةDataTable(ds.Tables["الاعادة"]));
+                if ((ds.Tables["tool"] != null)) {
+                    base.Tables.Add(new toolDataTable(ds.Tables["tool"]));
                 }
-                if ((ds.Tables["المستعير"] != null)) {
-                    base.Tables.Add(new المستعيرDataTable(ds.Tables["المستعير"]));
+                if ((ds.Tables["User"] != null)) {
+                    base.Tables.Add(new UserDataTable(ds.Tables["User"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -107,6 +116,16 @@ namespace hayaaFinal {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public borrowingDataTable borrowing {
+            get {
+                return this.tableborrowing;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public loginDataTable login {
             get {
                 return this.tablelogin;
@@ -117,9 +136,9 @@ namespace hayaaFinal {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public اداةDataTable اداة {
+        public PatientDataTable Patient {
             get {
-                return this.tableاداة;
+                return this.tablePatient;
             }
         }
         
@@ -127,9 +146,9 @@ namespace hayaaFinal {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public الاستعارةDataTable الاستعارة {
+        public returningDataTable returning {
             get {
-                return this.tableالاستعارة;
+                return this.tablereturning;
             }
         }
         
@@ -137,9 +156,9 @@ namespace hayaaFinal {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public الاعادةDataTable الاعادة {
+        public toolDataTable tool {
             get {
-                return this.tableالاعادة;
+                return this.tabletool;
             }
         }
         
@@ -147,9 +166,9 @@ namespace hayaaFinal {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public المستعيرDataTable المستعير {
+        public UserDataTable User {
             get {
-                return this.tableالمستعير;
+                return this.tableUser;
             }
         }
         
@@ -220,20 +239,23 @@ namespace hayaaFinal {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["borrowing"] != null)) {
+                    base.Tables.Add(new borrowingDataTable(ds.Tables["borrowing"]));
+                }
                 if ((ds.Tables["login"] != null)) {
                     base.Tables.Add(new loginDataTable(ds.Tables["login"]));
                 }
-                if ((ds.Tables["اداة"] != null)) {
-                    base.Tables.Add(new اداةDataTable(ds.Tables["اداة"]));
+                if ((ds.Tables["Patient"] != null)) {
+                    base.Tables.Add(new PatientDataTable(ds.Tables["Patient"]));
                 }
-                if ((ds.Tables["الاستعارة"] != null)) {
-                    base.Tables.Add(new الاستعارةDataTable(ds.Tables["الاستعارة"]));
+                if ((ds.Tables["returning"] != null)) {
+                    base.Tables.Add(new returningDataTable(ds.Tables["returning"]));
                 }
-                if ((ds.Tables["الاعادة"] != null)) {
-                    base.Tables.Add(new الاعادةDataTable(ds.Tables["الاعادة"]));
+                if ((ds.Tables["tool"] != null)) {
+                    base.Tables.Add(new toolDataTable(ds.Tables["tool"]));
                 }
-                if ((ds.Tables["المستعير"] != null)) {
-                    base.Tables.Add(new المستعيرDataTable(ds.Tables["المستعير"]));
+                if ((ds.Tables["User"] != null)) {
+                    base.Tables.Add(new UserDataTable(ds.Tables["User"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -268,38 +290,46 @@ namespace hayaaFinal {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
+            this.tableborrowing = ((borrowingDataTable)(base.Tables["borrowing"]));
+            if ((initTable == true)) {
+                if ((this.tableborrowing != null)) {
+                    this.tableborrowing.InitVars();
+                }
+            }
             this.tablelogin = ((loginDataTable)(base.Tables["login"]));
             if ((initTable == true)) {
                 if ((this.tablelogin != null)) {
                     this.tablelogin.InitVars();
                 }
             }
-            this.tableاداة = ((اداةDataTable)(base.Tables["اداة"]));
+            this.tablePatient = ((PatientDataTable)(base.Tables["Patient"]));
             if ((initTable == true)) {
-                if ((this.tableاداة != null)) {
-                    this.tableاداة.InitVars();
+                if ((this.tablePatient != null)) {
+                    this.tablePatient.InitVars();
                 }
             }
-            this.tableالاستعارة = ((الاستعارةDataTable)(base.Tables["الاستعارة"]));
+            this.tablereturning = ((returningDataTable)(base.Tables["returning"]));
             if ((initTable == true)) {
-                if ((this.tableالاستعارة != null)) {
-                    this.tableالاستعارة.InitVars();
+                if ((this.tablereturning != null)) {
+                    this.tablereturning.InitVars();
                 }
             }
-            this.tableالاعادة = ((الاعادةDataTable)(base.Tables["الاعادة"]));
+            this.tabletool = ((toolDataTable)(base.Tables["tool"]));
             if ((initTable == true)) {
-                if ((this.tableالاعادة != null)) {
-                    this.tableالاعادة.InitVars();
+                if ((this.tabletool != null)) {
+                    this.tabletool.InitVars();
                 }
             }
-            this.tableالمستعير = ((المستعيرDataTable)(base.Tables["المستعير"]));
+            this.tableUser = ((UserDataTable)(base.Tables["User"]));
             if ((initTable == true)) {
-                if ((this.tableالمستعير != null)) {
-                    this.tableالمستعير.InitVars();
+                if ((this.tableUser != null)) {
+                    this.tableUser.InitVars();
                 }
             }
+            this.relationFK_borrowing_User = this.Relations["FK_borrowing_User"];
             this.relationFK_الاستعارة_اداة = this.Relations["FK_الاستعارة_اداة"];
             this.relationFK_الاستعارة_المستعير = this.Relations["FK_الاستعارة_المستعير"];
+            this.relationFK_returning_User = this.Relations["FK_returning_User"];
             this.relationFK_الاعادة_اداة2 = this.Relations["FK_الاعادة_اداة2"];
             this.relationFK_الاعادة_المستعير = this.Relations["FK_الاعادة_المستعير"];
         }
@@ -312,32 +342,48 @@ namespace hayaaFinal {
             this.Namespace = "http://tempuri.org/hayaDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableborrowing = new borrowingDataTable();
+            base.Tables.Add(this.tableborrowing);
             this.tablelogin = new loginDataTable();
             base.Tables.Add(this.tablelogin);
-            this.tableاداة = new اداةDataTable();
-            base.Tables.Add(this.tableاداة);
-            this.tableالاستعارة = new الاستعارةDataTable();
-            base.Tables.Add(this.tableالاستعارة);
-            this.tableالاعادة = new الاعادةDataTable();
-            base.Tables.Add(this.tableالاعادة);
-            this.tableالمستعير = new المستعيرDataTable();
-            base.Tables.Add(this.tableالمستعير);
+            this.tablePatient = new PatientDataTable();
+            base.Tables.Add(this.tablePatient);
+            this.tablereturning = new returningDataTable();
+            base.Tables.Add(this.tablereturning);
+            this.tabletool = new toolDataTable();
+            base.Tables.Add(this.tabletool);
+            this.tableUser = new UserDataTable();
+            base.Tables.Add(this.tableUser);
+            this.relationFK_borrowing_User = new global::System.Data.DataRelation("FK_borrowing_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.اسم_المستخدمColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrowing.اسم_المريضColumn}, false);
+            this.Relations.Add(this.relationFK_borrowing_User);
             this.relationFK_الاستعارة_اداة = new global::System.Data.DataRelation("FK_الاستعارة_اداة", new global::System.Data.DataColumn[] {
-                        this.tableاداة.اسم_الاداةColumn}, new global::System.Data.DataColumn[] {
-                        this.tableالاستعارة.اسم_الاداةColumn}, false);
+                        this.tabletool.اسم_الاداةColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrowing.اسم_الاداةColumn}, false);
             this.Relations.Add(this.relationFK_الاستعارة_اداة);
             this.relationFK_الاستعارة_المستعير = new global::System.Data.DataRelation("FK_الاستعارة_المستعير", new global::System.Data.DataColumn[] {
-                        this.tableالمستعير.اسم_المستعيرColumn}, new global::System.Data.DataColumn[] {
-                        this.tableالاستعارة.اسم_المستعيرColumn}, false);
+                        this.tablePatient.اسم_المريضColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrowing.اسم_المستعيرColumn}, false);
             this.Relations.Add(this.relationFK_الاستعارة_المستعير);
+            this.relationFK_returning_User = new global::System.Data.DataRelation("FK_returning_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.اسم_المستخدمColumn}, new global::System.Data.DataColumn[] {
+                        this.tablereturning.اسم_المستخدمColumn}, false);
+            this.Relations.Add(this.relationFK_returning_User);
             this.relationFK_الاعادة_اداة2 = new global::System.Data.DataRelation("FK_الاعادة_اداة2", new global::System.Data.DataColumn[] {
-                        this.tableاداة.اسم_الاداةColumn}, new global::System.Data.DataColumn[] {
-                        this.tableالاعادة.اسم_الاداةColumn}, false);
+                        this.tabletool.اسم_الاداةColumn}, new global::System.Data.DataColumn[] {
+                        this.tablereturning.اسم_الاداةColumn}, false);
             this.Relations.Add(this.relationFK_الاعادة_اداة2);
             this.relationFK_الاعادة_المستعير = new global::System.Data.DataRelation("FK_الاعادة_المستعير", new global::System.Data.DataColumn[] {
-                        this.tableالمستعير.اسم_المستعيرColumn}, new global::System.Data.DataColumn[] {
-                        this.tableالاعادة.اسم_المستعيرColumn}, false);
+                        this.tablePatient.اسم_المريضColumn}, new global::System.Data.DataColumn[] {
+                        this.tablereturning.اسم_المريضColumn}, false);
             this.Relations.Add(this.relationFK_الاعادة_المستعير);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeborrowing() {
+            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -348,25 +394,25 @@ namespace hayaaFinal {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeاداة() {
+        private bool ShouldSerializePatient() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeالاستعارة() {
+        private bool ShouldSerializereturning() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeالاعادة() {
+        private bool ShouldSerializetool() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeالمستعير() {
+        private bool ShouldSerializeUser() {
             return false;
         }
         
@@ -426,19 +472,357 @@ namespace hayaaFinal {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void borrowingRowChangeEventHandler(object sender, borrowingRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void loginRowChangeEventHandler(object sender, loginRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void اداةRowChangeEventHandler(object sender, اداةRowChangeEvent e);
+        public delegate void PatientRowChangeEventHandler(object sender, PatientRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void الاستعارةRowChangeEventHandler(object sender, الاستعارةRowChangeEvent e);
+        public delegate void returningRowChangeEventHandler(object sender, returningRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void الاعادةRowChangeEventHandler(object sender, الاعادةRowChangeEvent e);
+        public delegate void toolRowChangeEventHandler(object sender, toolRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void المستعيرRowChangeEventHandler(object sender, المستعيرRowChangeEvent e);
+        public delegate void UserRowChangeEventHandler(object sender, UserRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class borrowingDataTable : global::System.Data.TypedTableBase<borrowingRow> {
+            
+            private global::System.Data.DataColumn columnاسم_الاداة;
+            
+            private global::System.Data.DataColumn columnاسم_المستعير;
+            
+            private global::System.Data.DataColumn columnاسم_المريض;
+            
+            private global::System.Data.DataColumn columnتاريخ_الاستعارة;
+            
+            private global::System.Data.DataColumn columnسبب_الاعارة;
+            
+            private global::System.Data.DataColumn columnتاريخ_المقترح_للاعادة;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingDataTable() {
+                this.TableName = "borrowing";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal borrowingDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected borrowingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_الاداةColumn {
+                get {
+                    return this.columnاسم_الاداة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_المستعيرColumn {
+                get {
+                    return this.columnاسم_المستعير;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_المريضColumn {
+                get {
+                    return this.columnاسم_المريض;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_الاستعارةColumn {
+                get {
+                    return this.columnتاريخ_الاستعارة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn سبب_الاعارةColumn {
+                get {
+                    return this.columnسبب_الاعارة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_المقترح_للاعادةColumn {
+                get {
+                    return this.columnتاريخ_المقترح_للاعادة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow this[int index] {
+                get {
+                    return ((borrowingRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event borrowingRowChangeEventHandler borrowingRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event borrowingRowChangeEventHandler borrowingRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event borrowingRowChangeEventHandler borrowingRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event borrowingRowChangeEventHandler borrowingRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddborrowingRow(borrowingRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow AddborrowingRow(toolRow parenttoolRowByFK_الاستعارة_اداة, PatientRow parentPatientRowByFK_الاستعارة_المستعير, UserRow parentUserRowByFK_borrowing_User, System.DateTime تاريخ_الاستعارة, string سبب_الاعارة, System.DateTime تاريخ_المقترح_للاعادة) {
+                borrowingRow rowborrowingRow = ((borrowingRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        تاريخ_الاستعارة,
+                        سبب_الاعارة,
+                        تاريخ_المقترح_للاعادة};
+                if ((parenttoolRowByFK_الاستعارة_اداة != null)) {
+                    columnValuesArray[0] = parenttoolRowByFK_الاستعارة_اداة[0];
+                }
+                if ((parentPatientRowByFK_الاستعارة_المستعير != null)) {
+                    columnValuesArray[1] = parentPatientRowByFK_الاستعارة_المستعير[0];
+                }
+                if ((parentUserRowByFK_borrowing_User != null)) {
+                    columnValuesArray[2] = parentUserRowByFK_borrowing_User[0];
+                }
+                rowborrowingRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowborrowingRow);
+                return rowborrowingRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                borrowingDataTable cln = ((borrowingDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new borrowingDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnاسم_الاداة = base.Columns["اسم_الاداة"];
+                this.columnاسم_المستعير = base.Columns["اسم_المستعير"];
+                this.columnاسم_المريض = base.Columns["اسم_المريض"];
+                this.columnتاريخ_الاستعارة = base.Columns["تاريخ_الاستعارة"];
+                this.columnسبب_الاعارة = base.Columns["سبب_الاعارة"];
+                this.columnتاريخ_المقترح_للاعادة = base.Columns["تاريخ_المقترح_للاعادة"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnاسم_الاداة = new global::System.Data.DataColumn("اسم_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الاداة);
+                this.columnاسم_المستعير = new global::System.Data.DataColumn("اسم_المستعير", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المستعير);
+                this.columnاسم_المريض = new global::System.Data.DataColumn("اسم_المريض", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المريض);
+                this.columnتاريخ_الاستعارة = new global::System.Data.DataColumn("تاريخ_الاستعارة", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_الاستعارة);
+                this.columnسبب_الاعارة = new global::System.Data.DataColumn("سبب_الاعارة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnسبب_الاعارة);
+                this.columnتاريخ_المقترح_للاعادة = new global::System.Data.DataColumn("تاريخ_المقترح_للاعادة", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_المقترح_للاعادة);
+                this.columnاسم_الاداة.AllowDBNull = false;
+                this.columnاسم_الاداة.MaxLength = 25;
+                this.columnاسم_المستعير.AllowDBNull = false;
+                this.columnاسم_المستعير.MaxLength = 25;
+                this.columnاسم_المريض.AllowDBNull = false;
+                this.columnاسم_المريض.MaxLength = 25;
+                this.columnتاريخ_الاستعارة.AllowDBNull = false;
+                this.columnسبب_الاعارة.AllowDBNull = false;
+                this.columnسبب_الاعارة.MaxLength = 25;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow NewborrowingRow() {
+                return ((borrowingRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new borrowingRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(borrowingRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.borrowingRowChanged != null)) {
+                    this.borrowingRowChanged(this, new borrowingRowChangeEvent(((borrowingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.borrowingRowChanging != null)) {
+                    this.borrowingRowChanging(this, new borrowingRowChangeEvent(((borrowingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.borrowingRowDeleted != null)) {
+                    this.borrowingRowDeleted(this, new borrowingRowChangeEvent(((borrowingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.borrowingRowDeleting != null)) {
+                    this.borrowingRowDeleting(this, new borrowingRowChangeEvent(((borrowingRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveborrowingRow(borrowingRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                hayaDataSet ds = new hayaDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "borrowingDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -447,7 +831,7 @@ namespace hayaaFinal {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class loginDataTable : global::System.Data.TypedTableBase<loginRow> {
             
-            private global::System.Data.DataColumn columnusername;
+            private global::System.Data.DataColumn columnUsername;
             
             private global::System.Data.DataColumn columnpassword;
             
@@ -486,9 +870,9 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn usernameColumn {
+            public global::System.Data.DataColumn UsernameColumn {
                 get {
-                    return this.columnusername;
+                    return this.columnUsername;
                 }
             }
             
@@ -537,10 +921,10 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public loginRow AddloginRow(string username, string password) {
+            public loginRow AddloginRow(string Username, string password) {
                 loginRow rowloginRow = ((loginRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        username,
+                        Username,
                         password};
                 rowloginRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowloginRow);
@@ -549,9 +933,9 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public loginRow FindByusername(string username) {
+            public loginRow FindByUsername(string Username) {
                 return ((loginRow)(this.Rows.Find(new object[] {
-                            username})));
+                            Username})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -571,22 +955,22 @@ namespace hayaaFinal {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnusername = base.Columns["username"];
+                this.columnUsername = base.Columns["Username"];
                 this.columnpassword = base.Columns["password"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnusername);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
                 this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassword);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnusername}, true));
-                this.columnusername.AllowDBNull = false;
-                this.columnusername.Unique = true;
-                this.columnusername.MaxLength = 25;
+                                this.columnUsername}, true));
+                this.columnUsername.AllowDBNull = false;
+                this.columnUsername.Unique = true;
+                this.columnUsername.MaxLength = 25;
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 25;
             }
@@ -720,18 +1104,22 @@ namespace hayaaFinal {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class اداةDataTable : global::System.Data.TypedTableBase<اداةRow> {
+        public partial class PatientDataTable : global::System.Data.TypedTableBase<PatientRow> {
             
-            private global::System.Data.DataColumn columnاسم_الاداة;
+            private global::System.Data.DataColumn columnاسم_المريض;
             
-            private global::System.Data.DataColumn columnالعدد;
+            private global::System.Data.DataColumn columnرقم_الهاتف;
             
-            private global::System.Data.DataColumn columnرقم__الاداة;
+            private global::System.Data.DataColumn columnالسكن;
+            
+            private global::System.Data.DataColumn columnالعمر;
+            
+            private global::System.Data.DataColumn columnالجنس;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةDataTable() {
-                this.TableName = "اداة";
+            public PatientDataTable() {
+                this.TableName = "Patient";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -739,7 +1127,7 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal اداةDataTable(global::System.Data.DataTable table) {
+            internal PatientDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -756,7 +1144,656 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected اداةDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PatientDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_المريضColumn {
+                get {
+                    return this.columnاسم_المريض;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn رقم_الهاتفColumn {
+                get {
+                    return this.columnرقم_الهاتف;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn السكنColumn {
+                get {
+                    return this.columnالسكن;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn العمرColumn {
+                get {
+                    return this.columnالعمر;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn الجنسColumn {
+                get {
+                    return this.columnالجنس;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PatientRow this[int index] {
+                get {
+                    return ((PatientRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event PatientRowChangeEventHandler PatientRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event PatientRowChangeEventHandler PatientRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event PatientRowChangeEventHandler PatientRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event PatientRowChangeEventHandler PatientRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddPatientRow(PatientRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PatientRow AddPatientRow(string اسم_المريض, long رقم_الهاتف, string السكن, byte العمر, string الجنس) {
+                PatientRow rowPatientRow = ((PatientRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        اسم_المريض,
+                        رقم_الهاتف,
+                        السكن,
+                        العمر,
+                        الجنس};
+                rowPatientRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPatientRow);
+                return rowPatientRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PatientRow FindByاسم_المريض(string اسم_المريض) {
+                return ((PatientRow)(this.Rows.Find(new object[] {
+                            اسم_المريض})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PatientDataTable cln = ((PatientDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PatientDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnاسم_المريض = base.Columns["اسم_المريض"];
+                this.columnرقم_الهاتف = base.Columns["رقم_الهاتف"];
+                this.columnالسكن = base.Columns["السكن"];
+                this.columnالعمر = base.Columns["العمر"];
+                this.columnالجنس = base.Columns["الجنس"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnاسم_المريض = new global::System.Data.DataColumn("اسم_المريض", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المريض);
+                this.columnرقم_الهاتف = new global::System.Data.DataColumn("رقم_الهاتف", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnرقم_الهاتف);
+                this.columnالسكن = new global::System.Data.DataColumn("السكن", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالسكن);
+                this.columnالعمر = new global::System.Data.DataColumn("العمر", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالعمر);
+                this.columnالجنس = new global::System.Data.DataColumn("الجنس", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالجنس);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnاسم_المريض}, true));
+                this.columnاسم_المريض.AllowDBNull = false;
+                this.columnاسم_المريض.Unique = true;
+                this.columnاسم_المريض.MaxLength = 25;
+                this.columnالسكن.MaxLength = 25;
+                this.columnالجنس.MaxLength = 5;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PatientRow NewPatientRow() {
+                return ((PatientRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PatientRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PatientRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PatientRowChanged != null)) {
+                    this.PatientRowChanged(this, new PatientRowChangeEvent(((PatientRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PatientRowChanging != null)) {
+                    this.PatientRowChanging(this, new PatientRowChangeEvent(((PatientRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PatientRowDeleted != null)) {
+                    this.PatientRowDeleted(this, new PatientRowChangeEvent(((PatientRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PatientRowDeleting != null)) {
+                    this.PatientRowDeleting(this, new PatientRowChangeEvent(((PatientRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovePatientRow(PatientRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                hayaDataSet ds = new hayaDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PatientDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class returningDataTable : global::System.Data.TypedTableBase<returningRow> {
+            
+            private global::System.Data.DataColumn columnاسم_الاداة;
+            
+            private global::System.Data.DataColumn columnتاريخ_الاعادة;
+            
+            private global::System.Data.DataColumn columnحالة_الاداة;
+            
+            private global::System.Data.DataColumn columnاسم_المريض;
+            
+            private global::System.Data.DataColumn columnاسم_المستخدم;
+            
+            private global::System.Data.DataColumn columnملاحظة;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningDataTable() {
+                this.TableName = "returning";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal returningDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected returningDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_الاداةColumn {
+                get {
+                    return this.columnاسم_الاداة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_الاعادةColumn {
+                get {
+                    return this.columnتاريخ_الاعادة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn حالة_الاداةColumn {
+                get {
+                    return this.columnحالة_الاداة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_المريضColumn {
+                get {
+                    return this.columnاسم_المريض;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn اسم_المستخدمColumn {
+                get {
+                    return this.columnاسم_المستخدم;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ملاحظةColumn {
+                get {
+                    return this.columnملاحظة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningRow this[int index] {
+                get {
+                    return ((returningRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event returningRowChangeEventHandler returningRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event returningRowChangeEventHandler returningRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event returningRowChangeEventHandler returningRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event returningRowChangeEventHandler returningRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddreturningRow(returningRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningRow AddreturningRow(toolRow parenttoolRowByFK_الاعادة_اداة2, System.DateTime تاريخ_الاعادة, string حالة_الاداة, PatientRow parentPatientRowByFK_الاعادة_المستعير, UserRow parentUserRowByFK_returning_User, string ملاحظة) {
+                returningRow rowreturningRow = ((returningRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        تاريخ_الاعادة,
+                        حالة_الاداة,
+                        null,
+                        null,
+                        ملاحظة};
+                if ((parenttoolRowByFK_الاعادة_اداة2 != null)) {
+                    columnValuesArray[0] = parenttoolRowByFK_الاعادة_اداة2[0];
+                }
+                if ((parentPatientRowByFK_الاعادة_المستعير != null)) {
+                    columnValuesArray[3] = parentPatientRowByFK_الاعادة_المستعير[0];
+                }
+                if ((parentUserRowByFK_returning_User != null)) {
+                    columnValuesArray[4] = parentUserRowByFK_returning_User[0];
+                }
+                rowreturningRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowreturningRow);
+                return rowreturningRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                returningDataTable cln = ((returningDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new returningDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnاسم_الاداة = base.Columns["اسم_الاداة"];
+                this.columnتاريخ_الاعادة = base.Columns["تاريخ_الاعادة"];
+                this.columnحالة_الاداة = base.Columns["حالة_الاداة"];
+                this.columnاسم_المريض = base.Columns["اسم_المريض"];
+                this.columnاسم_المستخدم = base.Columns["اسم_المستخدم"];
+                this.columnملاحظة = base.Columns["ملاحظة"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnاسم_الاداة = new global::System.Data.DataColumn("اسم_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الاداة);
+                this.columnتاريخ_الاعادة = new global::System.Data.DataColumn("تاريخ_الاعادة", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_الاعادة);
+                this.columnحالة_الاداة = new global::System.Data.DataColumn("حالة_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnحالة_الاداة);
+                this.columnاسم_المريض = new global::System.Data.DataColumn("اسم_المريض", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المريض);
+                this.columnاسم_المستخدم = new global::System.Data.DataColumn("اسم_المستخدم", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المستخدم);
+                this.columnملاحظة = new global::System.Data.DataColumn("ملاحظة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnملاحظة);
+                this.columnاسم_الاداة.AllowDBNull = false;
+                this.columnاسم_الاداة.MaxLength = 25;
+                this.columnتاريخ_الاعادة.AllowDBNull = false;
+                this.columnحالة_الاداة.AllowDBNull = false;
+                this.columnحالة_الاداة.MaxLength = 10;
+                this.columnاسم_المريض.AllowDBNull = false;
+                this.columnاسم_المريض.MaxLength = 25;
+                this.columnاسم_المستخدم.AllowDBNull = false;
+                this.columnاسم_المستخدم.MaxLength = 25;
+                this.columnملاحظة.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningRow NewreturningRow() {
+                return ((returningRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new returningRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(returningRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.returningRowChanged != null)) {
+                    this.returningRowChanged(this, new returningRowChangeEvent(((returningRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.returningRowChanging != null)) {
+                    this.returningRowChanging(this, new returningRowChangeEvent(((returningRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.returningRowDeleted != null)) {
+                    this.returningRowDeleted(this, new returningRowChangeEvent(((returningRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.returningRowDeleting != null)) {
+                    this.returningRowDeleting(this, new returningRowChangeEvent(((returningRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovereturningRow(returningRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                hayaDataSet ds = new hayaDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "returningDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class toolDataTable : global::System.Data.TypedTableBase<toolRow> {
+            
+            private global::System.Data.DataColumn columnاسم_الاداة;
+            
+            private global::System.Data.DataColumn columnالعدد;
+            
+            private global::System.Data.DataColumn columnرقم__الاداة;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public toolDataTable() {
+                this.TableName = "tool";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal toolDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected toolDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -796,54 +1833,54 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow this[int index] {
+            public toolRow this[int index] {
                 get {
-                    return ((اداةRow)(this.Rows[index]));
+                    return ((toolRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event اداةRowChangeEventHandler اداةRowChanging;
+            public event toolRowChangeEventHandler toolRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event اداةRowChangeEventHandler اداةRowChanged;
+            public event toolRowChangeEventHandler toolRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event اداةRowChangeEventHandler اداةRowDeleting;
+            public event toolRowChangeEventHandler toolRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event اداةRowChangeEventHandler اداةRowDeleted;
+            public event toolRowChangeEventHandler toolRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddاداةRow(اداةRow row) {
+            public void AddtoolRow(toolRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow AddاداةRow(string اسم_الاداة, int العدد, string رقم__الاداة) {
-                اداةRow rowاداةRow = ((اداةRow)(this.NewRow()));
+            public toolRow AddtoolRow(string اسم_الاداة, int العدد, string رقم__الاداة) {
+                toolRow rowtoolRow = ((toolRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         اسم_الاداة,
                         العدد,
                         رقم__الاداة};
-                rowاداةRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowاداةRow);
-                return rowاداةRow;
+                rowtoolRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtoolRow);
+                return rowtoolRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow FindByاسم_الاداة(string اسم_الاداة) {
-                return ((اداةRow)(this.Rows.Find(new object[] {
+            public toolRow FindByاسم_الاداة(string اسم_الاداة) {
+                return ((toolRow)(this.Rows.Find(new object[] {
                             اسم_الاداة})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                اداةDataTable cln = ((اداةDataTable)(base.Clone()));
+                toolDataTable cln = ((toolDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -851,7 +1888,7 @@ namespace hayaaFinal {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new اداةDataTable();
+                return new toolDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -875,34 +1912,36 @@ namespace hayaaFinal {
                                 this.columnاسم_الاداة}, true));
                 this.columnاسم_الاداة.AllowDBNull = false;
                 this.columnاسم_الاداة.Unique = true;
-                this.columnاسم_الاداة.MaxLength = 50;
-                this.columnرقم__الاداة.MaxLength = 10;
+                this.columnاسم_الاداة.MaxLength = 25;
+                this.columnالعدد.AllowDBNull = false;
+                this.columnرقم__الاداة.AllowDBNull = false;
+                this.columnرقم__الاداة.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow NewاداةRow() {
-                return ((اداةRow)(this.NewRow()));
+            public toolRow NewtoolRow() {
+                return ((toolRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new اداةRow(builder);
+                return new toolRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(اداةRow);
+                return typeof(toolRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.اداةRowChanged != null)) {
-                    this.اداةRowChanged(this, new اداةRowChangeEvent(((اداةRow)(e.Row)), e.Action));
+                if ((this.toolRowChanged != null)) {
+                    this.toolRowChanged(this, new toolRowChangeEvent(((toolRow)(e.Row)), e.Action));
                 }
             }
             
@@ -910,8 +1949,8 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.اداةRowChanging != null)) {
-                    this.اداةRowChanging(this, new اداةRowChangeEvent(((اداةRow)(e.Row)), e.Action));
+                if ((this.toolRowChanging != null)) {
+                    this.toolRowChanging(this, new toolRowChangeEvent(((toolRow)(e.Row)), e.Action));
                 }
             }
             
@@ -919,8 +1958,8 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.اداةRowDeleted != null)) {
-                    this.اداةRowDeleted(this, new اداةRowChangeEvent(((اداةRow)(e.Row)), e.Action));
+                if ((this.toolRowDeleted != null)) {
+                    this.toolRowDeleted(this, new toolRowChangeEvent(((toolRow)(e.Row)), e.Action));
                 }
             }
             
@@ -928,14 +1967,14 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.اداةRowDeleting != null)) {
-                    this.اداةRowDeleting(this, new اداةRowChangeEvent(((اداةRow)(e.Row)), e.Action));
+                if ((this.toolRowDeleting != null)) {
+                    this.toolRowDeleting(this, new toolRowChangeEvent(((toolRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveاداةRow(اداةRow row) {
+            public void RemovetoolRow(toolRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -962,7 +2001,7 @@ namespace hayaaFinal {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "اداةDataTable";
+                attribute2.FixedValue = "toolDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1008,22 +2047,18 @@ namespace hayaaFinal {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class الاستعارةDataTable : global::System.Data.TypedTableBase<الاستعارةRow> {
+        public partial class UserDataTable : global::System.Data.TypedTableBase<UserRow> {
             
-            private global::System.Data.DataColumn columnتاريخ_الاستعارة;
+            private global::System.Data.DataColumn columnاسم_المستخدم;
             
-            private global::System.Data.DataColumn columnاسم_الاداة;
+            private global::System.Data.DataColumn columnAddress;
             
-            private global::System.Data.DataColumn columnاسم_المستعير;
-            
-            private global::System.Data.DataColumn columnاسم_المعير;
-            
-            private global::System.Data.DataColumn columnسبب_الاعارة;
+            private global::System.Data.DataColumn columnphoneNumber;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةDataTable() {
-                this.TableName = "الاستعارة";
+            public UserDataTable() {
+                this.TableName = "User";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1031,7 +2066,7 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal الاستعارةDataTable(global::System.Data.DataTable table) {
+            internal UserDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1048,48 +2083,32 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected الاستعارةDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UserDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn تاريخ_الاستعارةColumn {
+            public global::System.Data.DataColumn اسم_المستخدمColumn {
                 get {
-                    return this.columnتاريخ_الاستعارة;
+                    return this.columnاسم_المستخدم;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_الاداةColumn {
+            public global::System.Data.DataColumn AddressColumn {
                 get {
-                    return this.columnاسم_الاداة;
+                    return this.columnAddress;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_المستعيرColumn {
+            public global::System.Data.DataColumn phoneNumberColumn {
                 get {
-                    return this.columnاسم_المستعير;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_المعيرColumn {
-                get {
-                    return this.columnاسم_المعير;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn سبب_الاعارةColumn {
-                get {
-                    return this.columnسبب_الاعارة;
+                    return this.columnphoneNumber;
                 }
             }
             
@@ -1104,62 +2123,54 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow this[int index] {
+            public UserRow this[int index] {
                 get {
-                    return ((الاستعارةRow)(this.Rows[index]));
+                    return ((UserRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاستعارةRowChangeEventHandler الاستعارةRowChanging;
+            public event UserRowChangeEventHandler UserRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاستعارةRowChangeEventHandler الاستعارةRowChanged;
+            public event UserRowChangeEventHandler UserRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاستعارةRowChangeEventHandler الاستعارةRowDeleting;
+            public event UserRowChangeEventHandler UserRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاستعارةRowChangeEventHandler الاستعارةRowDeleted;
+            public event UserRowChangeEventHandler UserRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddالاستعارةRow(الاستعارةRow row) {
+            public void AddUserRow(UserRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow AddالاستعارةRow(System.DateTime تاريخ_الاستعارة, اداةRow parentاداةRowByFK_الاستعارة_اداة, المستعيرRow parentالمستعيرRowByFK_الاستعارة_المستعير, string اسم_المعير, string سبب_الاعارة) {
-                الاستعارةRow rowالاستعارةRow = ((الاستعارةRow)(this.NewRow()));
+            public UserRow AddUserRow(string اسم_المستخدم, string Address, decimal phoneNumber) {
+                UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        تاريخ_الاستعارة,
-                        null,
-                        null,
-                        اسم_المعير,
-                        سبب_الاعارة};
-                if ((parentاداةRowByFK_الاستعارة_اداة != null)) {
-                    columnValuesArray[1] = parentاداةRowByFK_الاستعارة_اداة[0];
-                }
-                if ((parentالمستعيرRowByFK_الاستعارة_المستعير != null)) {
-                    columnValuesArray[2] = parentالمستعيرRowByFK_الاستعارة_المستعير[0];
-                }
-                rowالاستعارةRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowالاستعارةRow);
-                return rowالاستعارةRow;
+                        اسم_المستخدم,
+                        Address,
+                        phoneNumber};
+                rowUserRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUserRow);
+                return rowUserRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow FindByتاريخ_الاستعارة(System.DateTime تاريخ_الاستعارة) {
-                return ((الاستعارةRow)(this.Rows.Find(new object[] {
-                            تاريخ_الاستعارة})));
+            public UserRow FindByاسم_المستخدم(string اسم_المستخدم) {
+                return ((UserRow)(this.Rows.Find(new object[] {
+                            اسم_المستخدم})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                الاستعارةDataTable cln = ((الاستعارةDataTable)(base.Clone()));
+                UserDataTable cln = ((UserDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1167,66 +2178,58 @@ namespace hayaaFinal {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new الاستعارةDataTable();
+                return new UserDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnتاريخ_الاستعارة = base.Columns["تاريخ_الاستعارة"];
-                this.columnاسم_الاداة = base.Columns["اسم_الاداة"];
-                this.columnاسم_المستعير = base.Columns["اسم_المستعير"];
-                this.columnاسم_المعير = base.Columns["اسم_المعير"];
-                this.columnسبب_الاعارة = base.Columns["سبب_الاعارة"];
+                this.columnاسم_المستخدم = base.Columns["اسم_المستخدم"];
+                this.columnAddress = base.Columns["Address"];
+                this.columnphoneNumber = base.Columns["phoneNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnتاريخ_الاستعارة = new global::System.Data.DataColumn("تاريخ_الاستعارة", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnتاريخ_الاستعارة);
-                this.columnاسم_الاداة = new global::System.Data.DataColumn("اسم_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_الاداة);
-                this.columnاسم_المستعير = new global::System.Data.DataColumn("اسم_المستعير", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_المستعير);
-                this.columnاسم_المعير = new global::System.Data.DataColumn("اسم_المعير", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_المعير);
-                this.columnسبب_الاعارة = new global::System.Data.DataColumn("سبب_الاعارة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnسبب_الاعارة);
+                this.columnاسم_المستخدم = new global::System.Data.DataColumn("اسم_المستخدم", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_المستخدم);
+                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress);
+                this.columnphoneNumber = new global::System.Data.DataColumn("phoneNumber", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnphoneNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnتاريخ_الاستعارة}, true));
-                this.columnتاريخ_الاستعارة.AllowDBNull = false;
-                this.columnتاريخ_الاستعارة.Unique = true;
-                this.columnاسم_الاداة.MaxLength = 50;
-                this.columnاسم_المستعير.MaxLength = 50;
-                this.columnاسم_المعير.MaxLength = 50;
-                this.columnسبب_الاعارة.MaxLength = 50;
+                                this.columnاسم_المستخدم}, true));
+                this.columnاسم_المستخدم.AllowDBNull = false;
+                this.columnاسم_المستخدم.Unique = true;
+                this.columnاسم_المستخدم.MaxLength = 25;
+                this.columnAddress.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow NewالاستعارةRow() {
-                return ((الاستعارةRow)(this.NewRow()));
+            public UserRow NewUserRow() {
+                return ((UserRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new الاستعارةRow(builder);
+                return new UserRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(الاستعارةRow);
+                return typeof(UserRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.الاستعارةRowChanged != null)) {
-                    this.الاستعارةRowChanged(this, new الاستعارةRowChangeEvent(((الاستعارةRow)(e.Row)), e.Action));
+                if ((this.UserRowChanged != null)) {
+                    this.UserRowChanged(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1234,8 +2237,8 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.الاستعارةRowChanging != null)) {
-                    this.الاستعارةRowChanging(this, new الاستعارةRowChangeEvent(((الاستعارةRow)(e.Row)), e.Action));
+                if ((this.UserRowChanging != null)) {
+                    this.UserRowChanging(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1243,8 +2246,8 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.الاستعارةRowDeleted != null)) {
-                    this.الاستعارةRowDeleted(this, new الاستعارةRowChangeEvent(((الاستعارةRow)(e.Row)), e.Action));
+                if ((this.UserRowDeleted != null)) {
+                    this.UserRowDeleted(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1252,14 +2255,14 @@ namespace hayaaFinal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.الاستعارةRowDeleting != null)) {
-                    this.الاستعارةRowDeleting(this, new الاستعارةRowChangeEvent(((الاستعارةRow)(e.Row)), e.Action));
+                if ((this.UserRowDeleting != null)) {
+                    this.UserRowDeleting(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveالاستعارةRow(الاستعارةRow row) {
+            public void RemoveUserRow(UserRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1286,7 +2289,7 @@ namespace hayaaFinal {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "الاستعارةDataTable";
+                attribute2.FixedValue = "UserDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1328,614 +2331,133 @@ namespace hayaaFinal {
         }
         
         /// <summary>
-        ///Represents the strongly named DataTable class.
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class الاعادةDataTable : global::System.Data.TypedTableBase<الاعادةRow> {
+        public partial class borrowingRow : global::System.Data.DataRow {
             
-            private global::System.Data.DataColumn columnتاريخ_الاعادة;
-            
-            private global::System.Data.DataColumn columnاسم_الاداة;
-            
-            private global::System.Data.DataColumn columnاسم_المستعير;
-            
-            private global::System.Data.DataColumn columnحالة_الاداة;
-            
-            private global::System.Data.DataColumn columnملاحظة;
+            private borrowingDataTable tableborrowing;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةDataTable() {
-                this.TableName = "الاعادة";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
+            internal borrowingRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableborrowing = ((borrowingDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal الاعادةDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected الاعادةDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn تاريخ_الاعادةColumn {
+            public string اسم_الاداة {
                 get {
-                    return this.columnتاريخ_الاعادة;
+                    return ((string)(this[this.tableborrowing.اسم_الاداةColumn]));
+                }
+                set {
+                    this[this.tableborrowing.اسم_الاداةColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_الاداةColumn {
+            public string اسم_المستعير {
                 get {
-                    return this.columnاسم_الاداة;
+                    return ((string)(this[this.tableborrowing.اسم_المستعيرColumn]));
+                }
+                set {
+                    this[this.tableborrowing.اسم_المستعيرColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_المستعيرColumn {
+            public string اسم_المريض {
                 get {
-                    return this.columnاسم_المستعير;
+                    return ((string)(this[this.tableborrowing.اسم_المريضColumn]));
+                }
+                set {
+                    this[this.tableborrowing.اسم_المريضColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn حالة_الاداةColumn {
+            public System.DateTime تاريخ_الاستعارة {
                 get {
-                    return this.columnحالة_الاداة;
+                    return ((global::System.DateTime)(this[this.tableborrowing.تاريخ_الاستعارةColumn]));
+                }
+                set {
+                    this[this.tableborrowing.تاريخ_الاستعارةColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ملاحظةColumn {
+            public string سبب_الاعارة {
                 get {
-                    return this.columnملاحظة;
+                    return ((string)(this[this.tableborrowing.سبب_الاعارةColumn]));
+                }
+                set {
+                    this[this.tableborrowing.سبب_الاعارةColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
+            public System.DateTime تاريخ_المقترح_للاعادة {
                 get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow this[int index] {
-                get {
-                    return ((الاعادةRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاعادةRowChangeEventHandler الاعادةRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاعادةRowChangeEventHandler الاعادةRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاعادةRowChangeEventHandler الاعادةRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event الاعادةRowChangeEventHandler الاعادةRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddالاعادةRow(الاعادةRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow AddالاعادةRow(System.DateTime تاريخ_الاعادة, اداةRow parentاداةRowByFK_الاعادة_اداة2, المستعيرRow parentالمستعيرRowByFK_الاعادة_المستعير, string حالة_الاداة, string ملاحظة) {
-                الاعادةRow rowالاعادةRow = ((الاعادةRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        تاريخ_الاعادة,
-                        null,
-                        null,
-                        حالة_الاداة,
-                        ملاحظة};
-                if ((parentاداةRowByFK_الاعادة_اداة2 != null)) {
-                    columnValuesArray[1] = parentاداةRowByFK_الاعادة_اداة2[0];
-                }
-                if ((parentالمستعيرRowByFK_الاعادة_المستعير != null)) {
-                    columnValuesArray[2] = parentالمستعيرRowByFK_الاعادة_المستعير[0];
-                }
-                rowالاعادةRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowالاعادةRow);
-                return rowالاعادةRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow FindByتاريخ_الاعادة(System.DateTime تاريخ_الاعادة) {
-                return ((الاعادةRow)(this.Rows.Find(new object[] {
-                            تاريخ_الاعادة})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                الاعادةDataTable cln = ((الاعادةDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new الاعادةDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnتاريخ_الاعادة = base.Columns["تاريخ_الاعادة"];
-                this.columnاسم_الاداة = base.Columns["اسم_الاداة"];
-                this.columnاسم_المستعير = base.Columns["اسم_المستعير"];
-                this.columnحالة_الاداة = base.Columns["حالة_الاداة"];
-                this.columnملاحظة = base.Columns["ملاحظة"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnتاريخ_الاعادة = new global::System.Data.DataColumn("تاريخ_الاعادة", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnتاريخ_الاعادة);
-                this.columnاسم_الاداة = new global::System.Data.DataColumn("اسم_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_الاداة);
-                this.columnاسم_المستعير = new global::System.Data.DataColumn("اسم_المستعير", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_المستعير);
-                this.columnحالة_الاداة = new global::System.Data.DataColumn("حالة_الاداة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnحالة_الاداة);
-                this.columnملاحظة = new global::System.Data.DataColumn("ملاحظة", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnملاحظة);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnتاريخ_الاعادة}, true));
-                this.columnتاريخ_الاعادة.AllowDBNull = false;
-                this.columnتاريخ_الاعادة.Unique = true;
-                this.columnاسم_الاداة.MaxLength = 50;
-                this.columnاسم_المستعير.MaxLength = 50;
-                this.columnحالة_الاداة.MaxLength = 10;
-                this.columnملاحظة.MaxLength = 2147483647;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow NewالاعادةRow() {
-                return ((الاعادةRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new الاعادةRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(الاعادةRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.الاعادةRowChanged != null)) {
-                    this.الاعادةRowChanged(this, new الاعادةRowChangeEvent(((الاعادةRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.الاعادةRowChanging != null)) {
-                    this.الاعادةRowChanging(this, new الاعادةRowChangeEvent(((الاعادةRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.الاعادةRowDeleted != null)) {
-                    this.الاعادةRowDeleted(this, new الاعادةRowChangeEvent(((الاعادةRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.الاعادةRowDeleting != null)) {
-                    this.الاعادةRowDeleting(this, new الاعادةRowChangeEvent(((الاعادةRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveالاعادةRow(الاعادةRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                hayaDataSet ds = new hayaDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "الاعادةDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
+                        return ((global::System.DateTime)(this[this.tableborrowing.تاريخ_المقترح_للاعادةColumn]));
                     }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'تاريخ_المقترح_للاعادة\' in table \'borrowing\' is DBNull.", e);
                     }
                 }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class المستعيرDataTable : global::System.Data.TypedTableBase<المستعيرRow> {
-            
-            private global::System.Data.DataColumn columnاسم_المستعير;
-            
-            private global::System.Data.DataColumn columnرقم_الهاتف;
-            
-            private global::System.Data.DataColumn columnالسكن;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرDataTable() {
-                this.TableName = "المستعير";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal المستعيرDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
+                set {
+                    this[this.tableborrowing.تاريخ_المقترح_للاعادةColumn] = value;
                 }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected المستعيرDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn اسم_المستعيرColumn {
+            public UserRow UserRow {
                 get {
-                    return this.columnاسم_المستعير;
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_borrowing_User"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_borrowing_User"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn رقم_الهاتفColumn {
+            public toolRow toolRow {
                 get {
-                    return this.columnرقم_الهاتف;
+                    return ((toolRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاستعارة_اداة"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاستعارة_اداة"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn السكنColumn {
+            public PatientRow PatientRow {
                 get {
-                    return this.columnالسكن;
+                    return ((PatientRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاستعارة_المستعير"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاستعارة_المستعير"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
+            public bool Isتاريخ_المقترح_للاعادةNull() {
+                return this.IsNull(this.tableborrowing.تاريخ_المقترح_للاعادةColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow this[int index] {
-                get {
-                    return ((المستعيرRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event المستعيرRowChangeEventHandler المستعيرRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event المستعيرRowChangeEventHandler المستعيرRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event المستعيرRowChangeEventHandler المستعيرRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event المستعيرRowChangeEventHandler المستعيرRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddالمستعيرRow(المستعيرRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow AddالمستعيرRow(string اسم_المستعير, int رقم_الهاتف, string السكن) {
-                المستعيرRow rowالمستعيرRow = ((المستعيرRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        اسم_المستعير,
-                        رقم_الهاتف,
-                        السكن};
-                rowالمستعيرRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowالمستعيرRow);
-                return rowالمستعيرRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow FindByاسم_المستعير(string اسم_المستعير) {
-                return ((المستعيرRow)(this.Rows.Find(new object[] {
-                            اسم_المستعير})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                المستعيرDataTable cln = ((المستعيرDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new المستعيرDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnاسم_المستعير = base.Columns["اسم_المستعير"];
-                this.columnرقم_الهاتف = base.Columns["رقم_الهاتف"];
-                this.columnالسكن = base.Columns["السكن"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnاسم_المستعير = new global::System.Data.DataColumn("اسم_المستعير", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnاسم_المستعير);
-                this.columnرقم_الهاتف = new global::System.Data.DataColumn("رقم_الهاتف", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnرقم_الهاتف);
-                this.columnالسكن = new global::System.Data.DataColumn("السكن", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnالسكن);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnاسم_المستعير}, true));
-                this.columnاسم_المستعير.AllowDBNull = false;
-                this.columnاسم_المستعير.Unique = true;
-                this.columnاسم_المستعير.MaxLength = 50;
-                this.columnالسكن.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow NewالمستعيرRow() {
-                return ((المستعيرRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new المستعيرRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(المستعيرRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.المستعيرRowChanged != null)) {
-                    this.المستعيرRowChanged(this, new المستعيرRowChangeEvent(((المستعيرRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.المستعيرRowChanging != null)) {
-                    this.المستعيرRowChanging(this, new المستعيرRowChangeEvent(((المستعيرRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.المستعيرRowDeleted != null)) {
-                    this.المستعيرRowDeleted(this, new المستعيرRowChangeEvent(((المستعيرRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.المستعيرRowDeleting != null)) {
-                    this.المستعيرRowDeleting(this, new المستعيرRowChangeEvent(((المستعيرRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveالمستعيرRow(المستعيرRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                hayaDataSet ds = new hayaDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "المستعيرDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
+            public void Setتاريخ_المقترح_للاعادةNull() {
+                this[this.tableborrowing.تاريخ_المقترح_للاعادةColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1955,12 +2477,12 @@ namespace hayaaFinal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string username {
+            public string Username {
                 get {
-                    return ((string)(this[this.tablelogin.usernameColumn]));
+                    return ((string)(this[this.tablelogin.UsernameColumn]));
                 }
                 set {
-                    this[this.tablelogin.usernameColumn] = value;
+                    this[this.tablelogin.UsernameColumn] = value;
                 }
             }
             
@@ -1979,465 +2501,41 @@ namespace hayaaFinal {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class اداةRow : global::System.Data.DataRow {
+        public partial class PatientRow : global::System.Data.DataRow {
             
-            private اداةDataTable tableاداة;
+            private PatientDataTable tablePatient;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal اداةRow(global::System.Data.DataRowBuilder rb) : 
+            internal PatientRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableاداة = ((اداةDataTable)(this.Table));
+                this.tablePatient = ((PatientDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_الاداة {
+            public string اسم_المريض {
                 get {
-                    return ((string)(this[this.tableاداة.اسم_الاداةColumn]));
+                    return ((string)(this[this.tablePatient.اسم_المريضColumn]));
                 }
                 set {
-                    this[this.tableاداة.اسم_الاداةColumn] = value;
+                    this[this.tablePatient.اسم_المريضColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int العدد {
-                get {
-                    try {
-                        return ((int)(this[this.tableاداة.العددColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'العدد\' in table \'اداة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableاداة.العددColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string رقم__الاداة {
+            public long رقم_الهاتف {
                 get {
                     try {
-                        return ((string)(this[this.tableاداة.رقم__الاداةColumn]));
+                        return ((long)(this[this.tablePatient.رقم_الهاتفColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'رقم_ الاداة\' in table \'اداة\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'رقم_الهاتف\' in table \'Patient\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableاداة.رقم__الاداةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsالعددNull() {
-                return this.IsNull(this.tableاداة.العددColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetالعددNull() {
-                this[this.tableاداة.العددColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isرقم__الاداةNull() {
-                return this.IsNull(this.tableاداة.رقم__الاداةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setرقم__الاداةNull() {
-                this[this.tableاداة.رقم__الاداةColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow[] GetالاستعارةRows() {
-                if ((this.Table.ChildRelations["FK_الاستعارة_اداة"] == null)) {
-                    return new الاستعارةRow[0];
-                }
-                else {
-                    return ((الاستعارةRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاستعارة_اداة"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow[] GetالاعادةRows() {
-                if ((this.Table.ChildRelations["FK_الاعادة_اداة2"] == null)) {
-                    return new الاعادةRow[0];
-                }
-                else {
-                    return ((الاعادةRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاعادة_اداة2"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class الاستعارةRow : global::System.Data.DataRow {
-            
-            private الاستعارةDataTable tableالاستعارة;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal الاستعارةRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableالاستعارة = ((الاستعارةDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime تاريخ_الاستعارة {
-                get {
-                    return ((global::System.DateTime)(this[this.tableالاستعارة.تاريخ_الاستعارةColumn]));
-                }
-                set {
-                    this[this.tableالاستعارة.تاريخ_الاستعارةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_الاداة {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاستعارة.اسم_الاداةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_الاداة\' in table \'الاستعارة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاستعارة.اسم_الاداةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_المستعير {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاستعارة.اسم_المستعيرColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_المستعير\' in table \'الاستعارة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاستعارة.اسم_المستعيرColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_المعير {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاستعارة.اسم_المعيرColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_المعير\' in table \'الاستعارة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاستعارة.اسم_المعيرColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string سبب_الاعارة {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاستعارة.سبب_الاعارةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'سبب_الاعارة\' in table \'الاستعارة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاستعارة.سبب_الاعارةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow اداةRow {
-                get {
-                    return ((اداةRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاستعارة_اداة"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاستعارة_اداة"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow المستعيرRow {
-                get {
-                    return ((المستعيرRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاستعارة_المستعير"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاستعارة_المستعير"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isاسم_الاداةNull() {
-                return this.IsNull(this.tableالاستعارة.اسم_الاداةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setاسم_الاداةNull() {
-                this[this.tableالاستعارة.اسم_الاداةColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isاسم_المستعيرNull() {
-                return this.IsNull(this.tableالاستعارة.اسم_المستعيرColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setاسم_المستعيرNull() {
-                this[this.tableالاستعارة.اسم_المستعيرColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isاسم_المعيرNull() {
-                return this.IsNull(this.tableالاستعارة.اسم_المعيرColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setاسم_المعيرNull() {
-                this[this.tableالاستعارة.اسم_المعيرColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isسبب_الاعارةNull() {
-                return this.IsNull(this.tableالاستعارة.سبب_الاعارةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setسبب_الاعارةNull() {
-                this[this.tableالاستعارة.سبب_الاعارةColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class الاعادةRow : global::System.Data.DataRow {
-            
-            private الاعادةDataTable tableالاعادة;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal الاعادةRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableالاعادة = ((الاعادةDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime تاريخ_الاعادة {
-                get {
-                    return ((global::System.DateTime)(this[this.tableالاعادة.تاريخ_الاعادةColumn]));
-                }
-                set {
-                    this[this.tableالاعادة.تاريخ_الاعادةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_الاداة {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاعادة.اسم_الاداةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_الاداة\' in table \'الاعادة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاعادة.اسم_الاداةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_المستعير {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاعادة.اسم_المستعيرColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'اسم_المستعير\' in table \'الاعادة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاعادة.اسم_المستعيرColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string حالة_الاداة {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاعادة.حالة_الاداةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'حالة_الاداة\' in table \'الاعادة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاعادة.حالة_الاداةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ملاحظة {
-                get {
-                    try {
-                        return ((string)(this[this.tableالاعادة.ملاحظةColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظة\' in table \'الاعادة\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالاعادة.ملاحظةColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow اداةRow {
-                get {
-                    return ((اداةRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاعادة_اداة2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاعادة_اداة2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow المستعيرRow {
-                get {
-                    return ((المستعيرRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاعادة_المستعير"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاعادة_المستعير"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isاسم_الاداةNull() {
-                return this.IsNull(this.tableالاعادة.اسم_الاداةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setاسم_الاداةNull() {
-                this[this.tableالاعادة.اسم_الاداةColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isاسم_المستعيرNull() {
-                return this.IsNull(this.tableالاعادة.اسم_المستعيرColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setاسم_المستعيرNull() {
-                this[this.tableالاعادة.اسم_المستعيرColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isحالة_الاداةNull() {
-                return this.IsNull(this.tableالاعادة.حالة_الاداةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setحالة_الاداةNull() {
-                this[this.tableالاعادة.حالة_الاداةColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsملاحظةNull() {
-                return this.IsNull(this.tableالاعادة.ملاحظةColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetملاحظةNull() {
-                this[this.tableالاعادة.ملاحظةColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class المستعيرRow : global::System.Data.DataRow {
-            
-            private المستعيرDataTable tableالمستعير;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal المستعيرRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableالمستعير = ((المستعيرDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string اسم_المستعير {
-                get {
-                    return ((string)(this[this.tableالمستعير.اسم_المستعيرColumn]));
-                }
-                set {
-                    this[this.tableالمستعير.اسم_المستعيرColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int رقم_الهاتف {
-                get {
-                    try {
-                        return ((int)(this[this.tableالمستعير.رقم_الهاتفColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'رقم_الهاتف\' in table \'المستعير\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableالمستعير.رقم_الهاتفColumn] = value;
+                    this[this.tablePatient.رقم_الهاتفColumn] = value;
                 }
             }
             
@@ -2446,60 +2544,455 @@ namespace hayaaFinal {
             public string السكن {
                 get {
                     try {
-                        return ((string)(this[this.tableالمستعير.السكنColumn]));
+                        return ((string)(this[this.tablePatient.السكنColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'السكن\' in table \'المستعير\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'السكن\' in table \'Patient\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableالمستعير.السكنColumn] = value;
+                    this[this.tablePatient.السكنColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public byte العمر {
+                get {
+                    try {
+                        return ((byte)(this[this.tablePatient.العمرColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'العمر\' in table \'Patient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatient.العمرColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string الجنس {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatient.الجنسColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'الجنس\' in table \'Patient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatient.الجنسColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isرقم_الهاتفNull() {
-                return this.IsNull(this.tableالمستعير.رقم_الهاتفColumn);
+                return this.IsNull(this.tablePatient.رقم_الهاتفColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setرقم_الهاتفNull() {
-                this[this.tableالمستعير.رقم_الهاتفColumn] = global::System.Convert.DBNull;
+                this[this.tablePatient.رقم_الهاتفColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsالسكنNull() {
-                return this.IsNull(this.tableالمستعير.السكنColumn);
+                return this.IsNull(this.tablePatient.السكنColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetالسكنNull() {
-                this[this.tableالمستعير.السكنColumn] = global::System.Convert.DBNull;
+                this[this.tablePatient.السكنColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow[] GetالاستعارةRows() {
+            public bool IsالعمرNull() {
+                return this.IsNull(this.tablePatient.العمرColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetالعمرNull() {
+                this[this.tablePatient.العمرColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsالجنسNull() {
+                return this.IsNull(this.tablePatient.الجنسColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetالجنسNull() {
+                this[this.tablePatient.الجنسColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow[] GetborrowingRows() {
                 if ((this.Table.ChildRelations["FK_الاستعارة_المستعير"] == null)) {
-                    return new الاستعارةRow[0];
+                    return new borrowingRow[0];
                 }
                 else {
-                    return ((الاستعارةRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاستعارة_المستعير"])));
+                    return ((borrowingRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاستعارة_المستعير"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow[] GetالاعادةRows() {
+            public returningRow[] GetreturningRows() {
                 if ((this.Table.ChildRelations["FK_الاعادة_المستعير"] == null)) {
-                    return new الاعادةRow[0];
+                    return new returningRow[0];
                 }
                 else {
-                    return ((الاعادةRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاعادة_المستعير"])));
+                    return ((returningRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاعادة_المستعير"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class returningRow : global::System.Data.DataRow {
+            
+            private returningDataTable tablereturning;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal returningRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablereturning = ((returningDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string اسم_الاداة {
+                get {
+                    return ((string)(this[this.tablereturning.اسم_الاداةColumn]));
+                }
+                set {
+                    this[this.tablereturning.اسم_الاداةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime تاريخ_الاعادة {
+                get {
+                    return ((global::System.DateTime)(this[this.tablereturning.تاريخ_الاعادةColumn]));
+                }
+                set {
+                    this[this.tablereturning.تاريخ_الاعادةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string حالة_الاداة {
+                get {
+                    return ((string)(this[this.tablereturning.حالة_الاداةColumn]));
+                }
+                set {
+                    this[this.tablereturning.حالة_الاداةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string اسم_المريض {
+                get {
+                    return ((string)(this[this.tablereturning.اسم_المريضColumn]));
+                }
+                set {
+                    this[this.tablereturning.اسم_المريضColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string اسم_المستخدم {
+                get {
+                    return ((string)(this[this.tablereturning.اسم_المستخدمColumn]));
+                }
+                set {
+                    this[this.tablereturning.اسم_المستخدمColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ملاحظة {
+                get {
+                    try {
+                        return ((string)(this[this.tablereturning.ملاحظةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ملاحظة\' in table \'returning\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereturning.ملاحظةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UserRow UserRow {
+                get {
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_returning_User"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_returning_User"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public toolRow toolRow {
+                get {
+                    return ((toolRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاعادة_اداة2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاعادة_اداة2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public PatientRow PatientRow {
+                get {
+                    return ((PatientRow)(this.GetParentRow(this.Table.ParentRelations["FK_الاعادة_المستعير"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_الاعادة_المستعير"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsملاحظةNull() {
+                return this.IsNull(this.tablereturning.ملاحظةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetملاحظةNull() {
+                this[this.tablereturning.ملاحظةColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class toolRow : global::System.Data.DataRow {
+            
+            private toolDataTable tabletool;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal toolRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletool = ((toolDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string اسم_الاداة {
+                get {
+                    return ((string)(this[this.tabletool.اسم_الاداةColumn]));
+                }
+                set {
+                    this[this.tabletool.اسم_الاداةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int العدد {
+                get {
+                    return ((int)(this[this.tabletool.العددColumn]));
+                }
+                set {
+                    this[this.tabletool.العددColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string رقم__الاداة {
+                get {
+                    return ((string)(this[this.tabletool.رقم__الاداةColumn]));
+                }
+                set {
+                    this[this.tabletool.رقم__الاداةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow[] GetborrowingRows() {
+                if ((this.Table.ChildRelations["FK_الاستعارة_اداة"] == null)) {
+                    return new borrowingRow[0];
+                }
+                else {
+                    return ((borrowingRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاستعارة_اداة"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningRow[] GetreturningRows() {
+                if ((this.Table.ChildRelations["FK_الاعادة_اداة2"] == null)) {
+                    return new returningRow[0];
+                }
+                else {
+                    return ((returningRow[])(base.GetChildRows(this.Table.ChildRelations["FK_الاعادة_اداة2"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class UserRow : global::System.Data.DataRow {
+            
+            private UserDataTable tableUser;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal UserRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableUser = ((UserDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string اسم_المستخدم {
+                get {
+                    return ((string)(this[this.tableUser.اسم_المستخدمColumn]));
+                }
+                set {
+                    this[this.tableUser.اسم_المستخدمColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Address {
+                get {
+                    try {
+                        return ((string)(this[this.tableUser.AddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'User\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser.AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal phoneNumber {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableUser.phoneNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'phoneNumber\' in table \'User\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser.phoneNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAddressNull() {
+                return this.IsNull(this.tableUser.AddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAddressNull() {
+                this[this.tableUser.AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsphoneNumberNull() {
+                return this.IsNull(this.tableUser.phoneNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetphoneNumberNull() {
+                this[this.tableUser.phoneNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow[] GetborrowingRows() {
+                if ((this.Table.ChildRelations["FK_borrowing_User"] == null)) {
+                    return new borrowingRow[0];
+                }
+                else {
+                    return ((borrowingRow[])(base.GetChildRows(this.Table.ChildRelations["FK_borrowing_User"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public returningRow[] GetreturningRows() {
+                if ((this.Table.ChildRelations["FK_returning_User"] == null)) {
+                    return new returningRow[0];
+                }
+                else {
+                    return ((returningRow[])(base.GetChildRows(this.Table.ChildRelations["FK_returning_User"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class borrowingRowChangeEvent : global::System.EventArgs {
+            
+            private borrowingRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRowChangeEvent(borrowingRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public borrowingRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
                 }
             }
         }
@@ -2542,22 +3035,22 @@ namespace hayaaFinal {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class اداةRowChangeEvent : global::System.EventArgs {
+        public class PatientRowChangeEvent : global::System.EventArgs {
             
-            private اداةRow eventRow;
+            private PatientRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRowChangeEvent(اداةRow row, global::System.Data.DataRowAction action) {
+            public PatientRowChangeEvent(PatientRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public اداةRow Row {
+            public PatientRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2576,22 +3069,22 @@ namespace hayaaFinal {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class الاستعارةRowChangeEvent : global::System.EventArgs {
+        public class returningRowChangeEvent : global::System.EventArgs {
             
-            private الاستعارةRow eventRow;
+            private returningRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRowChangeEvent(الاستعارةRow row, global::System.Data.DataRowAction action) {
+            public returningRowChangeEvent(returningRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاستعارةRow Row {
+            public returningRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2610,22 +3103,22 @@ namespace hayaaFinal {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class الاعادةRowChangeEvent : global::System.EventArgs {
+        public class toolRowChangeEvent : global::System.EventArgs {
             
-            private الاعادةRow eventRow;
+            private toolRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRowChangeEvent(الاعادةRow row, global::System.Data.DataRowAction action) {
+            public toolRowChangeEvent(toolRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public الاعادةRow Row {
+            public toolRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2644,22 +3137,22 @@ namespace hayaaFinal {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class المستعيرRowChangeEvent : global::System.EventArgs {
+        public class UserRowChangeEvent : global::System.EventArgs {
             
-            private المستعيرRow eventRow;
+            private UserRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRowChangeEvent(المستعيرRow row, global::System.Data.DataRowAction action) {
+            public UserRowChangeEvent(UserRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public المستعيرRow Row {
+            public UserRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2677,6 +3170,272 @@ namespace hayaaFinal {
 }
 namespace hayaaFinal.hayaDataSetTableAdapters {
     
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class borrowingTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public borrowingTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "borrowing";
+            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
+            tableMapping.ColumnMappings.Add("اسم_المستعير", "اسم_المستعير");
+            tableMapping.ColumnMappings.Add("اسم_المريض", "اسم_المريض");
+            tableMapping.ColumnMappings.Add("تاريخ_الاستعارة", "تاريخ_الاستعارة");
+            tableMapping.ColumnMappings.Add("سبب_الاعارة", "سبب_الاعارة");
+            tableMapping.ColumnMappings.Add("تاريخ_المقترح_للاعادة", "تاريخ_المقترح_للاعادة");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[borrowing] ([اسم_الاداة], [اسم_المستعير], [اسم_المريض], [تاريخ" +
+                "_الاستعارة], [سبب_الاعارة], [تاريخ_المقترح_للاعادة]) VALUES (@اسم_الاداة, @اسم_ا" +
+                "لمستعير, @اسم_المريض, @تاريخ_الاستعارة, @سبب_الاعارة, @تاريخ_المقترح_للاعادة)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاستعارة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاستعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@سبب_الاعارة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_المقترح_للاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_المقترح_للاعادة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::hayaaFinal.Properties.Settings.Default.hayaConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT اسم_الاداة, اسم_المستعير, اسم_المريض, تاريخ_الاستعارة, سبب_الاعارة, تاريخ_" +
+                "المقترح_للاعادة FROM dbo.borrowing";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(hayaDataSet.borrowingDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual hayaDataSet.borrowingDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            hayaDataSet.borrowingDataTable dataTable = new hayaDataSet.borrowingDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet.borrowingDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "borrowing");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string اسم_الاداة, string اسم_المستعير, string اسم_المريض, System.DateTime تاريخ_الاستعارة, string سبب_الاعارة, global::System.Nullable<global::System.DateTime> تاريخ_المقترح_للاعادة) {
+            if ((اسم_الاداة == null)) {
+                throw new global::System.ArgumentNullException("اسم_الاداة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_الاداة));
+            }
+            if ((اسم_المستعير == null)) {
+                throw new global::System.ArgumentNullException("اسم_المستعير");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(اسم_المستعير));
+            }
+            if ((اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("اسم_المريض");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(اسم_المريض));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(تاريخ_الاستعارة));
+            if ((سبب_الاعارة == null)) {
+                throw new global::System.ArgumentNullException("سبب_الاعارة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(سبب_الاعارة));
+            }
+            if ((تاريخ_المقترح_للاعادة.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(تاريخ_المقترح_للاعادة.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -2799,32 +3558,32 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "login";
-            tableMapping.ColumnMappings.Add("username", "username");
+            tableMapping.ColumnMappings.Add("Username", "Username");
             tableMapping.ColumnMappings.Add("password", "password");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[login] WHERE (([username] = @Original_username) AND ([password" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[login] WHERE (([Username] = @Original_Username) AND ([password" +
                 "] = @Original_password))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[login] ([username], [password]) VALUES (@username, @password);" +
-                "\r\nSELECT username, password FROM login WHERE (username = @username)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[login] ([Username], [password]) VALUES (@Username, @password);" +
+                "\r\nSELECT Username, password FROM login WHERE (Username = @Username)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[login] SET [username] = @username, [password] = @password WHERE (([" +
-                "username] = @Original_username) AND ([password] = @Original_password));\r\nSELECT " +
-                "username, password FROM login WHERE (username = @username)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[login] SET [Username] = @Username, [password] = @password WHERE (([" +
+                "Username] = @Original_Username) AND ([password] = @Original_password));\r\nSELECT " +
+                "Username, password FROM login WHERE (Username = @Username)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -2841,7 +3600,7 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT username, password FROM dbo.login";
+            this._commandCollection[0].CommandText = "SELECT Username, password FROM dbo.login";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2902,12 +3661,12 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_username, string Original_password) {
-            if ((Original_username == null)) {
-                throw new global::System.ArgumentNullException("Original_username");
+        public virtual int Delete(string Original_Username, string Original_password) {
+            if ((Original_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_username));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Username));
             }
             if ((Original_password == null)) {
                 throw new global::System.ArgumentNullException("Original_password");
@@ -2935,12 +3694,12 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string username, string password) {
-            if ((username == null)) {
-                throw new global::System.ArgumentNullException("username");
+        public virtual int Insert(string Username, string password) {
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(username));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Username));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
@@ -2968,12 +3727,12 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string username, string password, string Original_username, string Original_password) {
-            if ((username == null)) {
-                throw new global::System.ArgumentNullException("username");
+        public virtual int Update(string Username, string password, string Original_Username, string Original_password) {
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(username));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Username));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
@@ -2981,11 +3740,11 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(password));
             }
-            if ((Original_username == null)) {
-                throw new global::System.ArgumentNullException("Original_username");
+            if ((Original_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_username));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Username));
             }
             if ((Original_password == null)) {
                 throw new global::System.ArgumentNullException("Original_password");
@@ -3013,8 +3772,8 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string password, string Original_username, string Original_password) {
-            return this.Update(Original_username, password, Original_username, Original_password);
+        public virtual int Update(string password, string Original_Username, string Original_password) {
+            return this.Update(Original_Username, password, Original_Username, Original_password);
         }
     }
     
@@ -3027,7 +3786,7 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class اداةTableAdapter : global::System.ComponentModel.Component {
+    public partial class PatientTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3041,7 +3800,7 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public اداةTableAdapter() {
+        public PatientTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3138,45 +3897,56 @@ namespace hayaaFinal.hayaDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "اداة";
-            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
-            tableMapping.ColumnMappings.Add("العدد", "العدد");
-            tableMapping.ColumnMappings.Add("رقم_ الاداة", "رقم_ الاداة");
+            tableMapping.DataSetTable = "Patient";
+            tableMapping.ColumnMappings.Add("اسم_المريض", "اسم_المريض");
+            tableMapping.ColumnMappings.Add("رقم_الهاتف", "رقم_الهاتف");
+            tableMapping.ColumnMappings.Add("السكن", "السكن");
+            tableMapping.ColumnMappings.Add("العمر", "العمر");
+            tableMapping.ColumnMappings.Add("الجنس", "الجنس");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[اداة] WHERE (([اسم_الاداة] = @Original_اسم_الاداة) AND ((@IsNu" +
-                "ll_العدد = 1 AND [العدد] IS NULL) OR ([العدد] = @Original_العدد)) AND ((@IsNull_" +
-                "رقم__الاداة = 1 AND [رقم_ الاداة] IS NULL) OR ([رقم_ الاداة] = @Original_رقم__ال" +
-                "اداة)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Patient] WHERE (([اسم_المريض] = @Original_اسم_المريض) AND ((@IsNull_رقم_الهاتف = 1 AND [رقم_الهاتف] IS NULL) OR ([رقم_الهاتف] = @Original_رقم_الهاتف)) AND ((@IsNull_السكن = 1 AND [السكن] IS NULL) OR ([السكن] = @Original_السكن)) AND ((@IsNull_العمر = 1 AND [العمر] IS NULL) OR ([العمر] = @Original_العمر)) AND ((@IsNull_الجنس = 1 AND [الجنس] IS NULL) OR ([الجنس] = @Original_الجنس)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم__الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم_الهاتف", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_السكن", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_العمر", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العمر", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_الجنس", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_الجنس", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[اداة] ([اسم_الاداة], [العدد], [رقم_ الاداة]) VALUES (@اسم_الاد" +
-                "اة, @العدد, @رقم__الاداة);\r\nSELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WH" +
-                "ERE (اسم_الاداة = @اسم_الاداة)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Patient] ([اسم_المريض], [رقم_الهاتف], [السكن], [العمر], [الجنس" +
+                "]) VALUES (@اسم_المريض, @رقم_الهاتف, @السكن, @العمر, @الجنس);\r\nSELECT اسم_المريض" +
+                ", رقم_الهاتف, السكن, العمر, الجنس FROM Patient WHERE (اسم_المريض = @اسم_المريض)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم_الهاتف", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العمر", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@الجنس", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[اداة] SET [اسم_الاداة] = @اسم_الاداة, [العدد] = @العدد, [رقم_ الاداة] = @رقم__الاداة WHERE (([اسم_الاداة] = @Original_اسم_الاداة) AND ((@IsNull_العدد = 1 AND [العدد] IS NULL) OR ([العدد] = @Original_العدد)) AND ((@IsNull_رقم__الاداة = 1 AND [رقم_ الاداة] IS NULL) OR ([رقم_ الاداة] = @Original_رقم__الاداة)));
-SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHERE (اسم_الاداة = @اسم_الاداة)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Patient] SET [اسم_المريض] = @اسم_المريض, [رقم_الهاتف] = @رقم_الهاتف, [السكن] = @السكن, [العمر] = @العمر, [الجنس] = @الجنس WHERE (([اسم_المريض] = @Original_اسم_المريض) AND ((@IsNull_رقم_الهاتف = 1 AND [رقم_الهاتف] IS NULL) OR ([رقم_الهاتف] = @Original_رقم_الهاتف)) AND ((@IsNull_السكن = 1 AND [السكن] IS NULL) OR ([السكن] = @Original_السكن)) AND ((@IsNull_العمر = 1 AND [العمر] IS NULL) OR ([العمر] = @Original_العمر)) AND ((@IsNull_الجنس = 1 AND [الجنس] IS NULL) OR ([الجنس] = @Original_الجنس)));
+SELECT اسم_المريض, رقم_الهاتف, السكن, العمر, الجنس FROM Patient WHERE (اسم_المريض = @اسم_المريض)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم__الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم_الهاتف", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العمر", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@الجنس", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم_الهاتف", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_السكن", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_العمر", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العمر", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العمر", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_الجنس", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_الجنس", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "الجنس", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3192,7 +3962,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM dbo.اداة";
+            this._commandCollection[0].CommandText = "SELECT اسم_المريض, رقم_الهاتف, السكن, العمر, الجنس FROM dbo.Patient";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3200,7 +3970,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(hayaDataSet.اداةDataTable dataTable) {
+        public virtual int Fill(hayaDataSet.PatientDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3213,9 +3983,9 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual hayaDataSet.اداةDataTable GetData() {
+        public virtual hayaDataSet.PatientDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            hayaDataSet.اداةDataTable dataTable = new hayaDataSet.اداةDataTable();
+            hayaDataSet.PatientDataTable dataTable = new hayaDataSet.PatientDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3223,7 +3993,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet.اداةDataTable dataTable) {
+        public virtual int Update(hayaDataSet.PatientDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -3231,7 +4001,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(hayaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "اداة");
+            return this.Adapter.Update(dataSet, "Patient");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3253,28 +4023,44 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_اسم_الاداة, global::System.Nullable<int> Original_العدد, string Original_رقم__الاداة) {
-            if ((Original_اسم_الاداة == null)) {
-                throw new global::System.ArgumentNullException("Original_اسم_الاداة");
+        public virtual int Delete(string Original_اسم_المريض, global::System.Nullable<long> Original_رقم_الهاتف, string Original_السكن, global::System.Nullable<byte> Original_العمر, string Original_الجنس) {
+            if ((Original_اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("Original_اسم_المريض");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_اسم_الاداة));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_اسم_المريض));
             }
-            if ((Original_العدد.HasValue == true)) {
+            if ((Original_رقم_الهاتف.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_العدد.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_رقم_الهاتف.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_رقم__الاداة == null)) {
+            if ((Original_السكن == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_رقم__الاداة));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_السكن));
+            }
+            if ((Original_العمر.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(Original_العمر.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_الجنس == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_الجنس));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3296,21 +4082,690 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string اسم_الاداة, global::System.Nullable<int> العدد, string رقم__الاداة) {
+        public virtual int Insert(string اسم_المريض, global::System.Nullable<long> رقم_الهاتف, string السكن, global::System.Nullable<byte> العمر, string الجنس) {
+            if ((اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("اسم_المريض");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_المريض));
+            }
+            if ((رقم_الهاتف.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((long)(رقم_الهاتف.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((السكن == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(السكن));
+            }
+            if ((العمر.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((byte)(العمر.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((الجنس == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(الجنس));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string اسم_المريض, global::System.Nullable<long> رقم_الهاتف, string السكن, global::System.Nullable<byte> العمر, string الجنس, string Original_اسم_المريض, global::System.Nullable<long> Original_رقم_الهاتف, string Original_السكن, global::System.Nullable<byte> Original_العمر, string Original_الجنس) {
+            if ((اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("اسم_المريض");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(اسم_المريض));
+            }
+            if ((رقم_الهاتف.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(رقم_الهاتف.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((السكن == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(السكن));
+            }
+            if ((العمر.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte)(العمر.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((الجنس == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(الجنس));
+            }
+            if ((Original_اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("Original_اسم_المريض");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_اسم_المريض));
+            }
+            if ((Original_رقم_الهاتف.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_رقم_الهاتف.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_السكن == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_السكن));
+            }
+            if ((Original_العمر.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(Original_العمر.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_الجنس == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_الجنس));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<long> رقم_الهاتف, string السكن, global::System.Nullable<byte> العمر, string الجنس, string Original_اسم_المريض, global::System.Nullable<long> Original_رقم_الهاتف, string Original_السكن, global::System.Nullable<byte> Original_العمر, string Original_الجنس) {
+            return this.Update(Original_اسم_المريض, رقم_الهاتف, السكن, العمر, الجنس, Original_اسم_المريض, Original_رقم_الهاتف, Original_السكن, Original_العمر, Original_الجنس);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class returningTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public returningTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "returning";
+            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
+            tableMapping.ColumnMappings.Add("تاريخ_الاعادة", "تاريخ_الاعادة");
+            tableMapping.ColumnMappings.Add("حالة_الاداة", "حالة_الاداة");
+            tableMapping.ColumnMappings.Add("اسم_المريض", "اسم_المريض");
+            tableMapping.ColumnMappings.Add("اسم_المستخدم", "اسم_المستخدم");
+            tableMapping.ColumnMappings.Add("ملاحظة", "ملاحظة");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[returning] ([اسم_الاداة], [تاريخ_الاعادة], [حالة_الاداة], [اسم" +
+                "_المريض], [اسم_المستخدم], [ملاحظة]) VALUES (@اسم_الاداة, @تاريخ_الاعادة, @حالة_ا" +
+                "لاداة, @اسم_المريض, @اسم_المستخدم, @ملاحظة)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاعادة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@حالة_الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المريض", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المريض", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستخدم", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستخدم", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ملاحظة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ملاحظة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::hayaaFinal.Properties.Settings.Default.hayaConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT اسم_الاداة, تاريخ_الاعادة, حالة_الاداة, اسم_المريض, اسم_المستخدم, ملاحظة F" +
+                "ROM dbo.returning";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(hayaDataSet.returningDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual hayaDataSet.returningDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            hayaDataSet.returningDataTable dataTable = new hayaDataSet.returningDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet.returningDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "returning");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string اسم_الاداة, System.DateTime تاريخ_الاعادة, string حالة_الاداة, string اسم_المريض, string اسم_المستخدم, string ملاحظة) {
             if ((اسم_الاداة == null)) {
                 throw new global::System.ArgumentNullException("اسم_الاداة");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_الاداة));
             }
-            if ((العدد.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(العدد.Value));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(تاريخ_الاعادة));
+            if ((حالة_الاداة == null)) {
+                throw new global::System.ArgumentNullException("حالة_الاداة");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(حالة_الاداة));
             }
+            if ((اسم_المريض == null)) {
+                throw new global::System.ArgumentNullException("اسم_المريض");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(اسم_المريض));
+            }
+            if ((اسم_المستخدم == null)) {
+                throw new global::System.ArgumentNullException("اسم_المستخدم");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(اسم_المستخدم));
+            }
+            if ((ملاحظة == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ملاحظة));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class toolTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public toolTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "tool";
+            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
+            tableMapping.ColumnMappings.Add("العدد", "العدد");
+            tableMapping.ColumnMappings.Add("رقم_ الاداة", "رقم_ الاداة");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tool] WHERE (([اسم_الاداة] = @Original_اسم_الاداة) AND ([العدد" +
+                "] = @Original_العدد) AND ([رقم_ الاداة] = @Original_رقم__الاداة))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tool] ([اسم_الاداة], [العدد], [رقم_ الاداة]) VALUES (@اسم_الاد" +
+                "اة, @العدد, @رقم__الاداة);\r\nSELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM tool WH" +
+                "ERE (اسم_الاداة = @اسم_الاداة)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tool] SET [اسم_الاداة] = @اسم_الاداة, [العدد] = @العدد, [رقم_ الاداة] = @رقم__الاداة WHERE (([اسم_الاداة] = @Original_اسم_الاداة) AND ([العدد] = @Original_العدد) AND ([رقم_ الاداة] = @Original_رقم__الاداة));
+SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM tool WHERE (اسم_الاداة = @اسم_الاداة)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_العدد", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "العدد", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم__الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_ الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::hayaaFinal.Properties.Settings.Default.hayaConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM dbo.tool";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(hayaDataSet.toolDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual hayaDataSet.toolDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            hayaDataSet.toolDataTable dataTable = new hayaDataSet.toolDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet.toolDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hayaDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "tool");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_اسم_الاداة, int Original_العدد, string Original_رقم__الاداة) {
+            if ((Original_اسم_الاداة == null)) {
+                throw new global::System.ArgumentNullException("Original_اسم_الاداة");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_اسم_الاداة));
+            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_العدد));
+            if ((Original_رقم__الاداة == null)) {
+                throw new global::System.ArgumentNullException("Original_رقم__الاداة");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_رقم__الاداة));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string اسم_الاداة, int العدد, string رقم__الاداة) {
+            if ((اسم_الاداة == null)) {
+                throw new global::System.ArgumentNullException("اسم_الاداة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_الاداة));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(العدد));
             if ((رقم__الاداة == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("رقم__الاداة");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(رقم__الاداة));
@@ -3335,21 +4790,16 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string اسم_الاداة, global::System.Nullable<int> العدد, string رقم__الاداة, string Original_اسم_الاداة, global::System.Nullable<int> Original_العدد, string Original_رقم__الاداة) {
+        public virtual int Update(string اسم_الاداة, int العدد, string رقم__الاداة, string Original_اسم_الاداة, int Original_العدد, string Original_رقم__الاداة) {
             if ((اسم_الاداة == null)) {
                 throw new global::System.ArgumentNullException("اسم_الاداة");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(اسم_الاداة));
             }
-            if ((العدد.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(العدد.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(العدد));
             if ((رقم__الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("رقم__الاداة");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(رقم__الاداة));
@@ -3360,21 +4810,12 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_اسم_الاداة));
             }
-            if ((Original_العدد.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_العدد.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_العدد));
             if ((Original_رقم__الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_رقم__الاداة");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_رقم__الاداة));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_رقم__الاداة));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3396,7 +4837,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> العدد, string رقم__الاداة, string Original_اسم_الاداة, global::System.Nullable<int> Original_العدد, string Original_رقم__الاداة) {
+        public virtual int Update(int العدد, string رقم__الاداة, string Original_اسم_الاداة, int Original_العدد, string Original_رقم__الاداة) {
             return this.Update(Original_اسم_الاداة, العدد, رقم__الاداة, Original_اسم_الاداة, Original_العدد, Original_رقم__الاداة);
         }
     }
@@ -3410,7 +4851,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class الاستعارةTableAdapter : global::System.ComponentModel.Component {
+    public partial class UserTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3424,7 +4865,7 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public الاستعارةTableAdapter() {
+        public UserTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3521,55 +4962,42 @@ SELECT اسم_الاداة, العدد, [رقم_ الاداة] FROM اداة WHE
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "الاستعارة";
-            tableMapping.ColumnMappings.Add("تاريخ_الاستعارة", "تاريخ_الاستعارة");
-            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
-            tableMapping.ColumnMappings.Add("اسم_المستعير", "اسم_المستعير");
-            tableMapping.ColumnMappings.Add("اسم_المعير", "اسم_المعير");
-            tableMapping.ColumnMappings.Add("سبب_الاعارة", "سبب_الاعارة");
+            tableMapping.DataSetTable = "User";
+            tableMapping.ColumnMappings.Add("اسم_المستخدم", "اسم_المستخدم");
+            tableMapping.ColumnMappings.Add("Address", "Address");
+            tableMapping.ColumnMappings.Add("phoneNumber", "phoneNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[الاستعارة] WHERE (([تاريخ_الاستعارة] = @Original_تاريخ_الاستعارة) AND ((@IsNull_اسم_الاداة = 1 AND [اسم_الاداة] IS NULL) OR ([اسم_الاداة] = @Original_اسم_الاداة)) AND ((@IsNull_اسم_المستعير = 1 AND [اسم_المستعير] IS NULL) OR ([اسم_المستعير] = @Original_اسم_المستعير)) AND ((@IsNull_اسم_المعير = 1 AND [اسم_المعير] IS NULL) OR ([اسم_المعير] = @Original_اسم_المعير)) AND ((@IsNull_سبب_الاعارة = 1 AND [سبب_الاعارة] IS NULL) OR ([سبب_الاعارة] = @Original_سبب_الاعارة)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[User] WHERE (([اسم_المستخدم] = @Original_اسم_المستخدم) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_تاريخ_الاستعارة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاستعارة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المستعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_سبب_الاعارة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_سبب_الاعارة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستخدم", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستخدم", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[الاستعارة] ([تاريخ_الاستعارة], [اسم_الاداة], [اسم_المستعير], [اسم_المعير], [سبب_الاعارة]) VALUES (@تاريخ_الاستعارة, @اسم_الاداة, @اسم_المستعير, @اسم_المعير, @سبب_الاعارة);
-SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعير, اسم_المعير, سبب_الاعارة FROM الاستعارة WHERE (تاريخ_الاستعارة = @تاريخ_الاستعارة)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([اسم_المستخدم], [Address], [phoneNumber]) VALUES (@اسم_" +
+                "المستخدم, @Address, @phoneNumber);\r\nSELECT اسم_المستخدم, Address, phoneNumber FR" +
+                "OM [User] WHERE (اسم_المستخدم = @اسم_المستخدم)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاستعارة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاستعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@سبب_الاعارة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستخدم", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستخدم", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "phoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[الاستعارة] SET [تاريخ_الاستعارة] = @تاريخ_الاستعارة, [اسم_الاداة] = @اسم_الاداة, [اسم_المستعير] = @اسم_المستعير, [اسم_المعير] = @اسم_المعير, [سبب_الاعارة] = @سبب_الاعارة WHERE (([تاريخ_الاستعارة] = @Original_تاريخ_الاستعارة) AND ((@IsNull_اسم_الاداة = 1 AND [اسم_الاداة] IS NULL) OR ([اسم_الاداة] = @Original_اسم_الاداة)) AND ((@IsNull_اسم_المستعير = 1 AND [اسم_المستعير] IS NULL) OR ([اسم_المستعير] = @Original_اسم_المستعير)) AND ((@IsNull_اسم_المعير = 1 AND [اسم_المعير] IS NULL) OR ([اسم_المعير] = @Original_اسم_المعير)) AND ((@IsNull_سبب_الاعارة = 1 AND [سبب_الاعارة] IS NULL) OR ([سبب_الاعارة] = @Original_سبب_الاعارة)));
-SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعير, اسم_المعير, سبب_الاعارة FROM الاستعارة WHERE (تاريخ_الاستعارة = @تاريخ_الاستعارة)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[User] SET [اسم_المستخدم] = @اسم_المستخدم, [Address] = @Address, [phoneNumber] = @phoneNumber WHERE (([اسم_المستخدم] = @Original_اسم_المستخدم) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_phoneNumber = 1 AND [phoneNumber] IS NULL) OR ([phoneNumber] = @Original_phoneNumber)));
+SELECT اسم_المستخدم, Address, phoneNumber FROM [User] WHERE (اسم_المستخدم = @اسم_المستخدم)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاستعارة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاستعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@سبب_الاعارة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_تاريخ_الاستعارة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاستعارة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المستعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_سبب_الاعارة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_سبب_الاعارة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "سبب_الاعارة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستخدم", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستخدم", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@phoneNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "phoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستخدم", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستخدم", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_phoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_phoneNumber", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "phoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3585,8 +5013,7 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعير, اسم_المعير, سبب_الاعارة FROM db" +
-                "o.الاستعارة";
+            this._commandCollection[0].CommandText = "SELECT اسم_المستخدم, Address, phoneNumber FROM dbo.[User]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3594,7 +5021,7 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(hayaDataSet.الاستعارةDataTable dataTable) {
+        public virtual int Fill(hayaDataSet.UserDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3607,9 +5034,9 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual hayaDataSet.الاستعارةDataTable GetData() {
+        public virtual hayaDataSet.UserDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            hayaDataSet.الاستعارةDataTable dataTable = new hayaDataSet.الاستعارةDataTable();
+            hayaDataSet.UserDataTable dataTable = new hayaDataSet.UserDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3617,7 +5044,7 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet.الاستعارةDataTable dataTable) {
+        public virtual int Update(hayaDataSet.UserDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -3625,7 +5052,7 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(hayaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "الاستعارة");
+            return this.Adapter.Update(dataSet, "User");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3647,39 +5074,28 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.DateTime Original_تاريخ_الاستعارة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_اسم_المعير, string Original_سبب_الاعارة) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((System.DateTime)(Original_تاريخ_الاستعارة));
-            if ((Original_اسم_الاداة == null)) {
+        public virtual int Delete(string Original_اسم_المستخدم, string Original_Address, global::System.Nullable<decimal> Original_phoneNumber) {
+            if ((Original_اسم_المستخدم == null)) {
+                throw new global::System.ArgumentNullException("Original_اسم_المستخدم");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_اسم_المستخدم));
+            }
+            if ((Original_Address == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_اسم_الاداة));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Address));
             }
-            if ((Original_اسم_المستعير == null)) {
+            if ((Original_phoneNumber.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_phoneNumber.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_اسم_المعير == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_اسم_المعير));
-            }
-            if ((Original_سبب_الاعارة == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_سبب_الاعارة));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3701,31 +5117,24 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime تاريخ_الاستعارة, string اسم_الاداة, string اسم_المستعير, string اسم_المعير, string سبب_الاعارة) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(تاريخ_الاستعارة));
-            if ((اسم_الاداة == null)) {
+        public virtual int Insert(string اسم_المستخدم, string Address, global::System.Nullable<decimal> phoneNumber) {
+            if ((اسم_المستخدم == null)) {
+                throw new global::System.ArgumentNullException("اسم_المستخدم");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_المستخدم));
+            }
+            if ((Address == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(اسم_الاداة));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Address));
             }
-            if ((اسم_المستعير == null)) {
+            if ((phoneNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(phoneNumber.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(اسم_المستعير));
-            }
-            if ((اسم_المعير == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(اسم_المعير));
-            }
-            if ((سبب_الاعارة == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(سبب_الاعارة));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3747,857 +5156,46 @@ SELECT تاريخ_الاستعارة, اسم_الاداة, اسم_المستعي
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime تاريخ_الاستعارة, string اسم_الاداة, string اسم_المستعير, string اسم_المعير, string سبب_الاعارة, System.DateTime Original_تاريخ_الاستعارة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_اسم_المعير, string Original_سبب_الاعارة) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(تاريخ_الاستعارة));
-            if ((اسم_الاداة == null)) {
+        public virtual int Update(string اسم_المستخدم, string Address, global::System.Nullable<decimal> phoneNumber, string Original_اسم_المستخدم, string Original_Address, global::System.Nullable<decimal> Original_phoneNumber) {
+            if ((اسم_المستخدم == null)) {
+                throw new global::System.ArgumentNullException("اسم_المستخدم");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(اسم_المستخدم));
+            }
+            if ((Address == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(اسم_الاداة));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Address));
             }
-            if ((اسم_المستعير == null)) {
+            if ((phoneNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(phoneNumber.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(اسم_المستعير));
-            }
-            if ((اسم_المعير == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((Original_اسم_المستخدم == null)) {
+                throw new global::System.ArgumentNullException("Original_اسم_المستخدم");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(اسم_المعير));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_اسم_المستخدم));
             }
-            if ((سبب_الاعارة == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(سبب_الاعارة));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_تاريخ_الاستعارة));
-            if ((Original_اسم_الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_اسم_الاداة));
-            }
-            if ((Original_اسم_المستعير == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_اسم_المعير == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_اسم_المعير));
-            }
-            if ((Original_سبب_الاعارة == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_سبب_الاعارة));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string اسم_الاداة, string اسم_المستعير, string اسم_المعير, string سبب_الاعارة, System.DateTime Original_تاريخ_الاستعارة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_اسم_المعير, string Original_سبب_الاعارة) {
-            return this.Update(Original_تاريخ_الاستعارة, اسم_الاداة, اسم_المستعير, اسم_المعير, سبب_الاعارة, Original_تاريخ_الاستعارة, Original_اسم_الاداة, Original_اسم_المستعير, Original_اسم_المعير, Original_سبب_الاعارة);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class الاعادةTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public الاعادةTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "الاعادة";
-            tableMapping.ColumnMappings.Add("تاريخ_الاعادة", "تاريخ_الاعادة");
-            tableMapping.ColumnMappings.Add("اسم_الاداة", "اسم_الاداة");
-            tableMapping.ColumnMappings.Add("اسم_المستعير", "اسم_المستعير");
-            tableMapping.ColumnMappings.Add("حالة_الاداة", "حالة_الاداة");
-            tableMapping.ColumnMappings.Add("ملاحظة", "ملاحظة");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[الاعادة] WHERE (([تاريخ_الاعادة] = @Original_تاريخ_الاعادة) AND ((@IsNull_اسم_الاداة = 1 AND [اسم_الاداة] IS NULL) OR ([اسم_الاداة] = @Original_اسم_الاداة)) AND ((@IsNull_اسم_المستعير = 1 AND [اسم_المستعير] IS NULL) OR ([اسم_المستعير] = @Original_اسم_المستعير)) AND ((@IsNull_حالة_الاداة = 1 AND [حالة_الاداة] IS NULL) OR ([حالة_الاداة] = @Original_حالة_الاداة)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_تاريخ_الاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاعادة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المستعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_حالة_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_حالة_الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[الاعادة] ([تاريخ_الاعادة], [اسم_الاداة], [اسم_المستعير], [حالة_الاداة], [ملاحظة]) VALUES (@تاريخ_الاعادة, @اسم_الاداة, @اسم_المستعير, @حالة_الاداة, @ملاحظة);
-SELECT تاريخ_الاعادة, اسم_الاداة, اسم_المستعير, حالة_الاداة, ملاحظة FROM الاعادة WHERE (تاريخ_الاعادة = @تاريخ_الاعادة)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاعادة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@حالة_الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ملاحظة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ملاحظة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[الاعادة] SET [تاريخ_الاعادة] = @تاريخ_الاعادة, [اسم_الاداة] = @اسم_الاداة, [اسم_المستعير] = @اسم_المستعير, [حالة_الاداة] = @حالة_الاداة, [ملاحظة] = @ملاحظة WHERE (([تاريخ_الاعادة] = @Original_تاريخ_الاعادة) AND ((@IsNull_اسم_الاداة = 1 AND [اسم_الاداة] IS NULL) OR ([اسم_الاداة] = @Original_اسم_الاداة)) AND ((@IsNull_اسم_المستعير = 1 AND [اسم_المستعير] IS NULL) OR ([اسم_المستعير] = @Original_اسم_المستعير)) AND ((@IsNull_حالة_الاداة = 1 AND [حالة_الاداة] IS NULL) OR ([حالة_الاداة] = @Original_حالة_الاداة)));
-SELECT تاريخ_الاعادة, اسم_الاداة, اسم_المستعير, حالة_الاداة, ملاحظة FROM الاعادة WHERE (تاريخ_الاعادة = @تاريخ_الاعادة)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@تاريخ_الاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاعادة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@حالة_الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ملاحظة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ملاحظة", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_تاريخ_الاعادة", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "تاريخ_الاعادة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_الاداة", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_اسم_المستعير", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_حالة_الاداة", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_حالة_الاداة", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "حالة_الاداة", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::hayaaFinal.Properties.Settings.Default.hayaConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT تاريخ_الاعادة, اسم_الاداة, اسم_المستعير, حالة_الاداة, ملاحظة FROM dbo.الاع" +
-                "ادة";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(hayaDataSet.الاعادةDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual hayaDataSet.الاعادةDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            hayaDataSet.الاعادةDataTable dataTable = new hayaDataSet.الاعادةDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet.الاعادةDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "الاعادة");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.DateTime Original_تاريخ_الاعادة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_حالة_الاداة) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((System.DateTime)(Original_تاريخ_الاعادة));
-            if ((Original_اسم_الاداة == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_اسم_الاداة));
-            }
-            if ((Original_اسم_المستعير == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_حالة_الاداة == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_حالة_الاداة));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime تاريخ_الاعادة, string اسم_الاداة, string اسم_المستعير, string حالة_الاداة, string ملاحظة) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(تاريخ_الاعادة));
-            if ((اسم_الاداة == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(اسم_الاداة));
-            }
-            if ((اسم_المستعير == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(اسم_المستعير));
-            }
-            if ((حالة_الاداة == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(حالة_الاداة));
-            }
-            if ((ملاحظة == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ملاحظة));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime تاريخ_الاعادة, string اسم_الاداة, string اسم_المستعير, string حالة_الاداة, string ملاحظة, System.DateTime Original_تاريخ_الاعادة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_حالة_الاداة) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(تاريخ_الاعادة));
-            if ((اسم_الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(اسم_الاداة));
-            }
-            if ((اسم_المستعير == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(اسم_المستعير));
-            }
-            if ((حالة_الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(حالة_الاداة));
-            }
-            if ((ملاحظة == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ملاحظة));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_تاريخ_الاعادة));
-            if ((Original_اسم_الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_اسم_الاداة));
-            }
-            if ((Original_اسم_المستعير == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_حالة_الاداة == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_حالة_الاداة));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string اسم_الاداة, string اسم_المستعير, string حالة_الاداة, string ملاحظة, System.DateTime Original_تاريخ_الاعادة, string Original_اسم_الاداة, string Original_اسم_المستعير, string Original_حالة_الاداة) {
-            return this.Update(Original_تاريخ_الاعادة, اسم_الاداة, اسم_المستعير, حالة_الاداة, ملاحظة, Original_تاريخ_الاعادة, Original_اسم_الاداة, Original_اسم_المستعير, Original_حالة_الاداة);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class المستعيرTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public المستعيرTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "المستعير";
-            tableMapping.ColumnMappings.Add("اسم_المستعير", "اسم_المستعير");
-            tableMapping.ColumnMappings.Add("رقم_الهاتف", "رقم_الهاتف");
-            tableMapping.ColumnMappings.Add("السكن", "السكن");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[المستعير] WHERE (([اسم_المستعير] = @Original_اسم_المستعير) AND" +
-                " ((@IsNull_رقم_الهاتف = 1 AND [رقم_الهاتف] IS NULL) OR ([رقم_الهاتف] = @Original" +
-                "_رقم_الهاتف)) AND ((@IsNull_السكن = 1 AND [السكن] IS NULL) OR ([السكن] = @Origin" +
-                "al_السكن)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_السكن", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[المستعير] ([اسم_المستعير], [رقم_الهاتف], [السكن]) VALUES (@اسم" +
-                "_المستعير, @رقم_الهاتف, @السكن);\r\nSELECT اسم_المستعير, رقم_الهاتف, السكن FROM ال" +
-                "مستعير WHERE (اسم_المستعير = @اسم_المستعير)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[المستعير] SET [اسم_المستعير] = @اسم_المستعير, [رقم_الهاتف] = @رقم_الهاتف, [السكن] = @السكن WHERE (([اسم_المستعير] = @Original_اسم_المستعير) AND ((@IsNull_رقم_الهاتف = 1 AND [رقم_الهاتف] IS NULL) OR ([رقم_الهاتف] = @Original_رقم_الهاتف)) AND ((@IsNull_السكن = 1 AND [السكن] IS NULL) OR ([السكن] = @Original_السكن)));
-SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المستعير WHERE (اسم_المستعير = @اسم_المستعير)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_اسم_المستعير", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "اسم_المستعير", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_رقم_الهاتف", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "رقم_الهاتف", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_السكن", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_السكن", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "السكن", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::hayaaFinal.Properties.Settings.Default.hayaConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT اسم_المستعير, رقم_الهاتف, السكن FROM dbo.المستعير";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(hayaDataSet.المستعيرDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual hayaDataSet.المستعيرDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            hayaDataSet.المستعيرDataTable dataTable = new hayaDataSet.المستعيرDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet.المستعيرDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(hayaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "المستعير");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_اسم_المستعير, global::System.Nullable<int> Original_رقم_الهاتف, string Original_السكن) {
-            if ((Original_اسم_المستعير == null)) {
-                throw new global::System.ArgumentNullException("Original_اسم_المستعير");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_رقم_الهاتف.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_رقم_الهاتف.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_السكن == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_السكن));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string اسم_المستعير, global::System.Nullable<int> رقم_الهاتف, string السكن) {
-            if ((اسم_المستعير == null)) {
-                throw new global::System.ArgumentNullException("اسم_المستعير");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(اسم_المستعير));
-            }
-            if ((رقم_الهاتف.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(رقم_الهاتف.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((السكن == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(السكن));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string اسم_المستعير, global::System.Nullable<int> رقم_الهاتف, string السكن, string Original_اسم_المستعير, global::System.Nullable<int> Original_رقم_الهاتف, string Original_السكن) {
-            if ((اسم_المستعير == null)) {
-                throw new global::System.ArgumentNullException("اسم_المستعير");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(اسم_المستعير));
-            }
-            if ((رقم_الهاتف.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(رقم_الهاتف.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((السكن == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(السكن));
-            }
-            if ((Original_اسم_المستعير == null)) {
-                throw new global::System.ArgumentNullException("Original_اسم_المستعير");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_اسم_المستعير));
-            }
-            if ((Original_رقم_الهاتف.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_رقم_الهاتف.Value));
-            }
-            else {
+            if ((Original_Address == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_السكن == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Address));
+            }
+            if ((Original_phoneNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_phoneNumber.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_السكن));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4619,8 +5217,8 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> رقم_الهاتف, string السكن, string Original_اسم_المستعير, global::System.Nullable<int> Original_رقم_الهاتف, string Original_السكن) {
-            return this.Update(Original_اسم_المستعير, رقم_الهاتف, السكن, Original_اسم_المستعير, Original_رقم_الهاتف, Original_السكن);
+        public virtual int Update(string Address, global::System.Nullable<decimal> phoneNumber, string Original_اسم_المستخدم, string Original_Address, global::System.Nullable<decimal> Original_phoneNumber) {
+            return this.Update(Original_اسم_المستخدم, Address, phoneNumber, Original_اسم_المستخدم, Original_Address, Original_phoneNumber);
         }
     }
     
@@ -4636,15 +5234,17 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         
         private UpdateOrderOption _updateOrder;
         
+        private borrowingTableAdapter _borrowingTableAdapter;
+        
         private loginTableAdapter _loginTableAdapter;
         
-        private اداةTableAdapter _اداةTableAdapter;
+        private PatientTableAdapter _patientTableAdapter;
         
-        private الاستعارةTableAdapter _الاستعارةTableAdapter;
+        private returningTableAdapter _returningTableAdapter;
         
-        private الاعادةTableAdapter _الاعادةTableAdapter;
+        private toolTableAdapter _toolTableAdapter;
         
-        private المستعيرTableAdapter _المستعيرTableAdapter;
+        private UserTableAdapter _userTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4658,6 +5258,20 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public borrowingTableAdapter borrowingTableAdapter {
+            get {
+                return this._borrowingTableAdapter;
+            }
+            set {
+                this._borrowingTableAdapter = value;
             }
         }
         
@@ -4680,12 +5294,12 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public اداةTableAdapter اداةTableAdapter {
+        public PatientTableAdapter PatientTableAdapter {
             get {
-                return this._اداةTableAdapter;
+                return this._patientTableAdapter;
             }
             set {
-                this._اداةTableAdapter = value;
+                this._patientTableAdapter = value;
             }
         }
         
@@ -4694,12 +5308,12 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public الاستعارةTableAdapter الاستعارةTableAdapter {
+        public returningTableAdapter returningTableAdapter {
             get {
-                return this._الاستعارةTableAdapter;
+                return this._returningTableAdapter;
             }
             set {
-                this._الاستعارةTableAdapter = value;
+                this._returningTableAdapter = value;
             }
         }
         
@@ -4708,12 +5322,12 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public الاعادةTableAdapter الاعادةTableAdapter {
+        public toolTableAdapter toolTableAdapter {
             get {
-                return this._الاعادةTableAdapter;
+                return this._toolTableAdapter;
             }
             set {
-                this._الاعادةTableAdapter = value;
+                this._toolTableAdapter = value;
             }
         }
         
@@ -4722,12 +5336,12 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public المستعيرTableAdapter المستعيرTableAdapter {
+        public UserTableAdapter UserTableAdapter {
             get {
-                return this._المستعيرTableAdapter;
+                return this._userTableAdapter;
             }
             set {
-                this._المستعيرTableAdapter = value;
+                this._userTableAdapter = value;
             }
         }
         
@@ -4750,25 +5364,29 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._borrowingTableAdapter != null) 
+                            && (this._borrowingTableAdapter.Connection != null))) {
+                    return this._borrowingTableAdapter.Connection;
+                }
                 if (((this._loginTableAdapter != null) 
                             && (this._loginTableAdapter.Connection != null))) {
                     return this._loginTableAdapter.Connection;
                 }
-                if (((this._اداةTableAdapter != null) 
-                            && (this._اداةTableAdapter.Connection != null))) {
-                    return this._اداةTableAdapter.Connection;
+                if (((this._patientTableAdapter != null) 
+                            && (this._patientTableAdapter.Connection != null))) {
+                    return this._patientTableAdapter.Connection;
                 }
-                if (((this._الاستعارةTableAdapter != null) 
-                            && (this._الاستعارةTableAdapter.Connection != null))) {
-                    return this._الاستعارةTableAdapter.Connection;
+                if (((this._returningTableAdapter != null) 
+                            && (this._returningTableAdapter.Connection != null))) {
+                    return this._returningTableAdapter.Connection;
                 }
-                if (((this._الاعادةTableAdapter != null) 
-                            && (this._الاعادةTableAdapter.Connection != null))) {
-                    return this._الاعادةTableAdapter.Connection;
+                if (((this._toolTableAdapter != null) 
+                            && (this._toolTableAdapter.Connection != null))) {
+                    return this._toolTableAdapter.Connection;
                 }
-                if (((this._المستعيرTableAdapter != null) 
-                            && (this._المستعيرTableAdapter.Connection != null))) {
-                    return this._المستعيرTableAdapter.Connection;
+                if (((this._userTableAdapter != null) 
+                            && (this._userTableAdapter.Connection != null))) {
+                    return this._userTableAdapter.Connection;
                 }
                 return null;
             }
@@ -4783,19 +5401,22 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._borrowingTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._loginTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._اداةTableAdapter != null)) {
+                if ((this._patientTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._الاستعارةTableAdapter != null)) {
+                if ((this._returningTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._الاعادةTableAdapter != null)) {
+                if ((this._toolTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._المستعيرTableAdapter != null)) {
+                if ((this._userTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4809,21 +5430,39 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(hayaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._اداةTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.اداة.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._patientTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Patient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._اداةTableAdapter.Update(updatedRows));
+                    result = (result + this._patientTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._المستعيرTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.المستعير.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._toolTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tool.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._المستعيرTableAdapter.Update(updatedRows));
+                    result = (result + this._toolTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._userTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._borrowingTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.borrowing.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._borrowingTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4836,21 +5475,12 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._الاستعارةTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.الاستعارة.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._returningTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.returning.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._الاستعارةTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._الاعادةTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.الاعادة.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._الاعادةTableAdapter.Update(updatedRows));
+                    result = (result + this._returningTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4864,19 +5494,35 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(hayaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._اداةTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.اداة.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._patientTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Patient.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._اداةTableAdapter.Update(addedRows));
+                    result = (result + this._patientTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._المستعيرTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.المستعير.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._toolTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tool.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._المستعيرTableAdapter.Update(addedRows));
+                    result = (result + this._toolTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._userTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._borrowingTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.borrowing.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._borrowingTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4888,19 +5534,11 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._الاستعارةTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.الاستعارة.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._returningTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.returning.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._الاستعارةTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._الاعادةTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.الاعادة.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._الاعادةTableAdapter.Update(addedRows));
+                    result = (result + this._returningTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4914,19 +5552,11 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(hayaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._الاعادةTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.الاعادة.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._returningTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.returning.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._الاعادةTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._الاستعارةTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.الاستعارة.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._الاستعارةTableAdapter.Update(deletedRows));
+                    result = (result + this._returningTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4938,19 +5568,35 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._المستعيرTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.المستعير.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._borrowingTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.borrowing.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._المستعيرTableAdapter.Update(deletedRows));
+                    result = (result + this._borrowingTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._اداةTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.اداة.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._اداةTableAdapter.Update(deletedRows));
+                    result = (result + this._userTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._toolTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tool.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._toolTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._patientTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Patient.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._patientTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4993,28 +5639,33 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
+            if (((this._borrowingTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._borrowingTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             if (((this._loginTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._loginTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._اداةTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._اداةTableAdapter.Connection) == false))) {
+            if (((this._patientTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._patientTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._الاستعارةTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._الاستعارةTableAdapter.Connection) == false))) {
+            if (((this._returningTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._returningTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._الاعادةTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._الاعادةTableAdapter.Connection) == false))) {
+            if (((this._toolTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._toolTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._المستعيرTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._المستعيرTableAdapter.Connection) == false))) {
+            if (((this._userTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._userTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5050,6 +5701,15 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._borrowingTableAdapter != null)) {
+                    revertConnections.Add(this._borrowingTableAdapter, this._borrowingTableAdapter.Connection);
+                    this._borrowingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._borrowingTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._borrowingTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._borrowingTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._borrowingTableAdapter.Adapter);
+                    }
+                }
                 if ((this._loginTableAdapter != null)) {
                     revertConnections.Add(this._loginTableAdapter, this._loginTableAdapter.Connection);
                     this._loginTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -5059,40 +5719,40 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                         adaptersWithAcceptChangesDuringUpdate.Add(this._loginTableAdapter.Adapter);
                     }
                 }
-                if ((this._اداةTableAdapter != null)) {
-                    revertConnections.Add(this._اداةTableAdapter, this._اداةTableAdapter.Connection);
-                    this._اداةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._اداةTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._اداةTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._اداةTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._اداةTableAdapter.Adapter);
+                if ((this._patientTableAdapter != null)) {
+                    revertConnections.Add(this._patientTableAdapter, this._patientTableAdapter.Connection);
+                    this._patientTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._patientTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._patientTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._patientTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._patientTableAdapter.Adapter);
                     }
                 }
-                if ((this._الاستعارةTableAdapter != null)) {
-                    revertConnections.Add(this._الاستعارةTableAdapter, this._الاستعارةTableAdapter.Connection);
-                    this._الاستعارةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._الاستعارةTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._الاستعارةTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._الاستعارةTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._الاستعارةTableAdapter.Adapter);
+                if ((this._returningTableAdapter != null)) {
+                    revertConnections.Add(this._returningTableAdapter, this._returningTableAdapter.Connection);
+                    this._returningTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._returningTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._returningTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._returningTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._returningTableAdapter.Adapter);
                     }
                 }
-                if ((this._الاعادةTableAdapter != null)) {
-                    revertConnections.Add(this._الاعادةTableAdapter, this._الاعادةTableAdapter.Connection);
-                    this._الاعادةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._الاعادةTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._الاعادةTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._الاعادةTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._الاعادةTableAdapter.Adapter);
+                if ((this._toolTableAdapter != null)) {
+                    revertConnections.Add(this._toolTableAdapter, this._toolTableAdapter.Connection);
+                    this._toolTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._toolTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._toolTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._toolTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._toolTableAdapter.Adapter);
                     }
                 }
-                if ((this._المستعيرTableAdapter != null)) {
-                    revertConnections.Add(this._المستعيرTableAdapter, this._المستعيرTableAdapter.Connection);
-                    this._المستعيرTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._المستعيرTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._المستعيرTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._المستعيرTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._المستعيرTableAdapter.Adapter);
+                if ((this._userTableAdapter != null)) {
+                    revertConnections.Add(this._userTableAdapter, this._userTableAdapter.Connection);
+                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._userTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._userTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._userTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._userTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5153,25 +5813,29 @@ SELECT اسم_المستعير, رقم_الهاتف, السكن FROM المست�
                 if (workConnOpened) {
                     workConnection.Close();
                 }
+                if ((this._borrowingTableAdapter != null)) {
+                    this._borrowingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._borrowingTableAdapter]));
+                    this._borrowingTableAdapter.Transaction = null;
+                }
                 if ((this._loginTableAdapter != null)) {
                     this._loginTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._loginTableAdapter]));
                     this._loginTableAdapter.Transaction = null;
                 }
-                if ((this._اداةTableAdapter != null)) {
-                    this._اداةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._اداةTableAdapter]));
-                    this._اداةTableAdapter.Transaction = null;
+                if ((this._patientTableAdapter != null)) {
+                    this._patientTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._patientTableAdapter]));
+                    this._patientTableAdapter.Transaction = null;
                 }
-                if ((this._الاستعارةTableAdapter != null)) {
-                    this._الاستعارةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._الاستعارةTableAdapter]));
-                    this._الاستعارةTableAdapter.Transaction = null;
+                if ((this._returningTableAdapter != null)) {
+                    this._returningTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._returningTableAdapter]));
+                    this._returningTableAdapter.Transaction = null;
                 }
-                if ((this._الاعادةTableAdapter != null)) {
-                    this._الاعادةTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._الاعادةTableAdapter]));
-                    this._الاعادةTableAdapter.Transaction = null;
+                if ((this._toolTableAdapter != null)) {
+                    this._toolTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._toolTableAdapter]));
+                    this._toolTableAdapter.Transaction = null;
                 }
-                if ((this._المستعيرTableAdapter != null)) {
-                    this._المستعيرTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._المستعيرTableAdapter]));
-                    this._المستعيرTableAdapter.Transaction = null;
+                if ((this._userTableAdapter != null)) {
+                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._userTableAdapter]));
+                    this._userTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

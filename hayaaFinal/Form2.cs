@@ -17,7 +17,10 @@ namespace hayaaFinal
 #pragma warning restore CS0169 // The field 'Form2.peast' is never used
 
 
-        returning r1 = new returning();
+        getborrowing r1 = new getborrowing();
+        info info = new info();
+        getreturning getreturning = new getreturning();
+        patient Patient = new patient();
         public Form2()
         {
             InitializeComponent();
@@ -36,12 +39,22 @@ namespace hayaaFinal
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            info.BringToFront();
         }
 
         private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            r1.BringToFront();
+        }
 
+        private void navBarItem8_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            Patient.BringToFront();
+        }
+
+        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            getreturning.BringToFront();
         }
     }
 }

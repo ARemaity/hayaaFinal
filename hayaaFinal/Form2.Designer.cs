@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DevExpress.Utils.Controls.SnapOptions snapOptions2 = new DevExpress.Utils.Controls.SnapOptions();
+            DevExpress.Utils.Controls.SnapOptions snapOptions1 = new DevExpress.Utils.Controls.SnapOptions();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.navcontrol = new DevExpress.XtraNavBar.NavBarControl();
@@ -39,10 +39,9 @@
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.borrowing1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarSeparatorItem2 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
             this.searchbutton = new DevExpress.XtraNavBar.NavBarGroup();
             this.swearch1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarSeparatorItem4 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
+            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
@@ -52,6 +51,10 @@
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager();
             this.headerbar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.getborrowing1 = new hayaaFinal.getborrowing();
+            this.getreturning1 = new hayaaFinal.getreturning();
+            this.patient1 = new hayaaFinal.patient();
+            this.info1 = new hayaaFinal.info();
             ((System.ComponentModel.ISupportInitialize)(this.navcontrol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -119,13 +122,12 @@
             this.navBarItem5,
             this.navBarItem2,
             this.navBarSeparatorItem1,
-            this.navBarSeparatorItem2,
             this.navBarItem7,
             this.navBarItem3,
             this.swearch1,
-            this.navBarSeparatorItem4,
             this.navBarItem4,
-            this.navBarItem6});
+            this.navBarItem6,
+            this.navBarItem8});
             this.navcontrol.Name = "navcontrol";
             this.navcontrol.OptionsNavPane.ExpandedWidth = ((int)(resources.GetObject("resource.ExpandedWidth")));
             this.navcontrol.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.SideBar;
@@ -154,6 +156,7 @@
             resources.ApplyResources(this.navBarItem3, "navBarItem3");
             this.navBarItem3.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.show_32x32;
             this.navBarItem3.Name = "navBarItem3";
+            this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -165,8 +168,7 @@
             this.navBarGroup2.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.team_32x321;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.borrowing1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSeparatorItem2)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
             this.navBarGroup2.Name = "navBarGroup2";
             this.navBarGroup2.ShowIcons = DevExpress.Utils.DefaultBoolean.True;
             // 
@@ -184,36 +186,30 @@
             this.navBarItem2.Name = "navBarItem2";
             this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
-            // navBarSeparatorItem2
-            // 
-            this.navBarSeparatorItem2.CanDrag = false;
-            this.navBarSeparatorItem2.Enabled = false;
-            resources.ApplyResources(this.navBarSeparatorItem2, "navBarSeparatorItem2");
-            this.navBarSeparatorItem2.Name = "navBarSeparatorItem2";
-            // 
             // searchbutton
             // 
             this.searchbutton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchbutton.BackgroundImage")));
             resources.ApplyResources(this.searchbutton, "searchbutton");
+            this.searchbutton.Expanded = true;
             this.searchbutton.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("searchbutton.ImageOptions.SmallImage")));
             this.searchbutton.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.swearch1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSeparatorItem4)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem8)});
             this.searchbutton.Name = "searchbutton";
             // 
             // swearch1
             // 
             resources.ApplyResources(this.swearch1, "swearch1");
             this.swearch1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.swearch1.ImageOptions.SmallImage = global::hayaaFinal.Properties.Resources.add_32x32;
+            this.swearch1.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("swearch1.ImageOptions.SmallImage")));
             this.swearch1.Name = "swearch1";
             // 
-            // navBarSeparatorItem4
+            // navBarItem8
             // 
-            this.navBarSeparatorItem4.CanDrag = false;
-            this.navBarSeparatorItem4.Enabled = false;
-            resources.ApplyResources(this.navBarSeparatorItem4, "navBarSeparatorItem4");
-            this.navBarSeparatorItem4.Name = "navBarSeparatorItem4";
+            resources.ApplyResources(this.navBarItem8, "navBarItem8");
+            this.navBarItem8.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.ImageOptions.SmallImage")));
+            this.navBarItem8.Name = "navBarItem8";
+            this.navBarItem8.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem8_LinkClicked);
             // 
             // navBarGroup1
             // 
@@ -269,16 +265,40 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // getborrowing1
+            // 
+            resources.ApplyResources(this.getborrowing1, "getborrowing1");
+            this.getborrowing1.Name = "getborrowing1";
+            // 
+            // getreturning1
+            // 
+            resources.ApplyResources(this.getreturning1, "getreturning1");
+            this.getreturning1.Name = "getreturning1";
+            // 
+            // patient1
+            // 
+            resources.ApplyResources(this.patient1, "patient1");
+            this.patient1.Name = "patient1";
+            // 
+            // info1
+            // 
+            resources.ApplyResources(this.info1, "info1");
+            this.info1.Name = "info1";
+            // 
             // Form2
             // 
             this.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("Form2.Appearance.BackColor")));
             this.Appearance.Options.UseBackColor = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            snapOptions2.SnapOnResizing = DevExpress.Utils.DefaultBoolean.True;
+            snapOptions1.SnapOnResizing = DevExpress.Utils.DefaultBoolean.True;
             this.behaviorManager1.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
-            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.SnapWindowBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.SnapWindowBehaviorSourceForForm), snapOptions2))),
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.SnapWindowBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.SnapWindowBehaviorSourceForForm), snapOptions1))),
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
+            this.Controls.Add(this.info1);
+            this.Controls.Add(this.patient1);
+            this.Controls.Add(this.getreturning1);
+            this.Controls.Add(this.getborrowing1);
             this.Controls.Add(this.navcontrol);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.headerbar);
@@ -302,13 +322,11 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
         private DevExpress.XtraNavBar.NavBarItem borrowing1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarSeparatorItem navBarSeparatorItem2;
         private DevExpress.XtraNavBar.NavBarGroup ا;
         private DevExpress.XtraNavBar.NavBarItem navBarItem7;
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
         private DevExpress.XtraNavBar.NavBarGroup searchbutton;
         private DevExpress.XtraNavBar.NavBarItem swearch1;
-        private DevExpress.XtraNavBar.NavBarSeparatorItem navBarSeparatorItem4;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem4;
         private DevExpress.XtraNavBar.NavBarItem navBarItem6;
@@ -318,5 +336,10 @@
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Panel headerbar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem8;
+        private getborrowing getborrowing1;
+        private getreturning getreturning1;
+        private patient patient1;
+        private info info1;
     }
 }

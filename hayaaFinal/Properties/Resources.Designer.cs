@@ -223,6 +223,16 @@ namespace hayaaFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lvl220150210081510 {
+            get {
+                object obj = ResourceManager.GetObject("lvl220150210081510", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MaxCDN_32px {
             get {
                 object obj = ResourceManager.GetObject("MaxCDN_32px", resourceCulture);

@@ -127,11 +127,23 @@
     <Compile Include="getborrowing.Designer.cs">
       <DependentUpon>getborrowing.cs</DependentUpon>
     </Compile>
+    <Compile Include="getreturning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="getreturning.Designer.cs">
+      <DependentUpon>getreturning.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="hayaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>hayaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="info.Designer.cs">
+      <DependentUpon>info.cs</DependentUpon>
     </Compile>
     <Compile Include="intro.cs">
       <SubType>Form</SubType>
@@ -139,10 +151,11 @@
     <Compile Include="intro.Designer.cs">
       <DependentUpon>intro.cs</DependentUpon>
     </Compile>
-    <Compile Include="klmtmoror.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>klmtmoror.dbml</DependentUpon>
+    <Compile Include="patient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="patient.Designer.cs">
+      <DependentUpon>patient.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,8 +183,17 @@
     <EmbeddedResource Include="getborrowing.resx">
       <DependentUpon>getborrowing.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="getreturning.resx">
+      <DependentUpon>getreturning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="info.resx">
+      <DependentUpon>info.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="intro.resx">
       <DependentUpon>intro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patient.resx">
+      <DependentUpon>patient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -200,14 +222,6 @@
     </None>
     <None Include="hayaDataSet.xss">
       <DependentUpon>hayaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="klmtmoror.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>klmtmoror.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="klmtmoror.dbml.layout">
-      <DependentUpon>klmtmoror.dbml</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -344,6 +358,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lvl220150210081510.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
