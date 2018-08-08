@@ -13,6 +13,25 @@ namespace hayaaFinal
 {
     public partial class getreturning : DevExpress.XtraEditors.XtraUserControl
     {
+
+        private static   getreturning  _inst;
+        public static getreturning Inst
+        {
+
+            get
+            {
+                if (_inst == null)
+
+
+                    _inst = new getreturning();
+                _inst.BringToFront();
+                return _inst;
+
+
+
+            }
+
+        }
         public getreturning()
         {
             InitializeComponent();

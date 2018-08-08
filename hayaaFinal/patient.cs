@@ -11,8 +11,27 @@ using DevExpress.XtraEditors;
 
 namespace hayaaFinal
 {
-    public partial class patient : DevExpress.XtraEditors.XtraUserControl
+    public partial class patient : System.Windows.Forms.UserControl
     {
+
+        private static patient _inst;
+        public static patient Inst
+        {
+
+            get
+            {
+                if (_inst == null)
+
+
+                    _inst = new patient();
+                _inst.BringToFront();
+                return _inst;
+
+
+
+            }
+
+        }
         public patient()
         {
             InitializeComponent();
