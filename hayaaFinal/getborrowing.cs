@@ -11,8 +11,27 @@ using DevExpress.XtraEditors;
 
 namespace hayaaFinal
 {
-    public partial class getborrowing : DevExpress.XtraEditors.XtraUserControl
+    public partial class getborrowing : System.Windows.Forms.UserControl
     {
+
+        private static getborrowing _inst;
+        public static getborrowing Inst
+        {
+
+            get
+            {
+                if (_inst == null)
+               
+
+                    _inst = new getborrowing();
+                    _inst.BringToFront();
+                    return _inst;
+
+               
+              
+            }
+           
+        }
         public getborrowing()
         {
             InitializeComponent();

@@ -39,7 +39,7 @@ namespace hayaaFinal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new intro());
+            Application.Run(new XtraForm1());
         }
     }
 }
