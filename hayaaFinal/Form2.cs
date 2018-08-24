@@ -10,134 +10,51 @@ using System.Windows.Forms;
 
 namespace hayaaFinal
 {
-    public partial class Form2 : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class Form2 : DevExpress.XtraEditors.XtraForm
     {
 #pragma warning disable CS0169 // The field 'Form2.peast' is never used
         int peast;
 #pragma warning restore CS0169 // The field 'Form2.peast' is never used
 
+
+        getborrowing r1 = new getborrowing();
+        info info = new info();
+        getreturning getreturning = new getreturning();
+        patient Patient = new patient();
         public Form2()
         {
             InitializeComponent();
             
         }
 
-        
-        
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
 
-       // private void Form2_Resize(object sender, EventArgs e)
-      //  {
-      //      headerbar.Width = this.Width +100;
-       //     panel1.Width = this.Width - navBarControl1.Width;
-      //  }
+        }
+
+        private void Form2_Resize(object sender, EventArgs e)
+        {
+            headerbar.Width = this.Width +100;
+        }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //panel1.Controls.Add(getborrowing.Inst);
-            // getborrowing.Inst.Dock = DockStyle.Fill;
-            //  getborrowing.Inst.BringToFront();
-            this.getborrow();
+            info.BringToFront();
         }
 
-        
-      
-/// <summary>
-/// here we should use method to call methods in list array of int there multiple methods to calls
-/// 
- private void getreturn()
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (!panel1.Controls.Contains(getreturning.Inst))
-            {
-                panel1.Controls.Add(getreturning.Inst);
-                getreturning.Inst.Dock = DockStyle.Fill;
-                getreturning.Inst.BringToFront();
-
-            }
-            else
-            {
-                getreturning.Inst.BringToFront();
-            }
+            r1.BringToFront();
         }
-        private void getPatient()
-{
-    if (!panel1.Controls.Contains(patient.Inst))
-    {
-        panel1.Controls.Add(patient.Inst);
-        patient.Inst.Dock = DockStyle.Fill;
-        patient.Inst.BringToFront();
 
-    }
-    else
-    {
-        patient.Inst.BringToFront();
-    }
-}
-private void getInfo()
-{
-    if (!panel1.Controls.Contains(info.Inst))
-    {
-        panel1.Controls.Add(info.Inst);
-        info.Inst.Dock = DockStyle.Fill;
-        info.Inst.BringToFront();
-
-    }
-    else
-    {
-        info.Inst.BringToFront();
-    }
-        }
-        private void getborrow()
+        private void navBarItem8_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (!panel1.Controls.Contains(getborrowing.Inst))
-            {
-                panel1.Controls.Add(getborrowing.Inst);
-                getborrowing.Inst.Dock = DockStyle.Fill;
-                getborrowing.Inst.BringToFront();
-
-            }
-            else
-            {
-                getborrowing.Inst.BringToFront();
-            }
+            Patient.BringToFront();
         }
 
-       /// <summary>
-       /// ////////////////
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
-
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void navBarItem3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            this.getPatient();
+            getreturning.BringToFront();
         }
-
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.getborrow();
-        }
-
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.getreturn();
-        }
-
-        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.getPatient();
-        }
-
-        /// 
-        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name=""></param>
-        /// <param name=""></param>
-
-
     }
 }
