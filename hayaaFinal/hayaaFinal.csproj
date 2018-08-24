@@ -177,6 +177,18 @@
     <Compile Include="SplashScreen1.Designer.cs">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
+    <Compile Include="transBorrow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transBorrow.Designer.cs">
+      <DependentUpon>transBorrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="transReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transReturn.Designer.cs">
+      <DependentUpon>transReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserDBs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transBorrow.resx">
+      <DependentUpon>transBorrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transReturn.resx">
+      <DependentUpon>transReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDBs.resx">
       <DependentUpon>UserDBs.cs</DependentUpon>

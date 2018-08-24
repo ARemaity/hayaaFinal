@@ -59,7 +59,33 @@ namespace hayaaFinal
 
         }
 
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           transUser frm = new transUser();
+            frm.Name = "transUser";
+            viewChild(frm);
+        }
 
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            transBorrow frm = new transBorrow();
+            frm.Name = "transBorrow";
+            viewChild(frm);
+        }
 
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            transReturn frm = new transReturn();
+            frm.Name = "transReturn";
+            viewChild(frm);
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserDBs frm = new UserDBs();
+            frm.Name = "userDBs";
+            viewChild(frm);
+        }
     }
 }
