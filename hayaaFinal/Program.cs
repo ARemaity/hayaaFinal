@@ -32,14 +32,24 @@ namespace hayaaFinal
         }
 
 
-
+/// <summary>
+/// //user not allow to edt dirctly and delete form the gridview 
+/// //add the borrow userconrtrol o use and return and add adding user uservcontrol
+/// //after finish the user main form begin with admin form then use the asyc aswit 
+/// then see what to make with he sq lconnection 
+/// //after that see what to make to the wikzard installer 
+/// after that finlaize to all design 
+/// 
+/// 
+///
+/// </summary>
 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_main());
+            Application.Run(new intro());
         }
     }
 }

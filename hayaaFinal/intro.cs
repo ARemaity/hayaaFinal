@@ -48,5 +48,11 @@ namespace hayaaFinal
         {
 
         }
+
+        private void tileItem2_ItemClick_1(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            frm_main frm = new frm_main();
+            frm.Show();
+        }
     }
 }
