@@ -35,7 +35,7 @@ namespace hayaaFinal
             sda.Fill(dtbl);
             if (dtbl.Rows.Count == 1)
             {
-                Form2 objFrmMain = new Form2();
+                frm_main objFrmMain = new frm_main();
                 this.Hide();
                 objFrmMain.Show();
             }
