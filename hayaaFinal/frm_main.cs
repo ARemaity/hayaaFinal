@@ -61,7 +61,7 @@ namespace hayaaFinal
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           transUser frm = new transUser();
+           text2 frm = new text2();
             frm.Name = "transUser";
             viewChild(frm);
         }

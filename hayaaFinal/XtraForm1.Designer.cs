@@ -75,7 +75,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Black";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
             // 
             // ribbonPage2
             // 
@@ -144,7 +144,7 @@
             this.عمليات,
             this.ribbonPage1,
             this.ribbonPage5});
-            this.ribbonControl1.Size = new System.Drawing.Size(992, 155);
+            this.ribbonControl1.Size = new System.Drawing.Size(992, 146);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // barButtonItem4
@@ -299,9 +299,9 @@
             this.panel1.Controls.Add(this.getreturning1);
             this.panel1.Controls.Add(this.info1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 155);
+            this.panel1.Location = new System.Drawing.Point(0, 146);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(992, 432);
+            this.panel1.Size = new System.Drawing.Size(992, 441);
             this.panel1.TabIndex = 3;
             // 
             // patient1

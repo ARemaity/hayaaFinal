@@ -52,7 +52,7 @@
             // navigationBarItem1
             // 
             this.navigationBarItem1.Name = "navigationBarItem1";
-            this.navigationBarItem1.Text = "مشاهدة";
+            this.navigationBarItem1.Text = "جديد";
             // 
             // navigationBarItem2
             // 

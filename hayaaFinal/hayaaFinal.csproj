@@ -115,11 +115,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="borrow.cs">
+    <Compile Include="transUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="borrow.Designer.cs">
-      <DependentUpon>borrow.cs</DependentUpon>
+    <Compile Include="transUser.Designer.cs">
+      <DependentUpon>transUser.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_main.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <Compile Include="XtraForm1.Designer.cs">
       <DependentUpon>XtraForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="borrow.resx">
-      <DependentUpon>borrow.cs</DependentUpon>
+    <EmbeddedResource Include="transUser.resx">
+      <DependentUpon>transUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.cs</DependentUpon>
